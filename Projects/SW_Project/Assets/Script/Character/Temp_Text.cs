@@ -19,19 +19,6 @@ public class Temp_Text : MonoBehaviour
     public Text xp;
     public Text xp_req;
 
-    //Attribute Point
-    public Text Attribute_Point;
-    public Text CON;
-    public Text WIS;
-    public Text STR;
-    public Text DEX;
-    public Text INT;
-
-    public Text info_Health;
-    public Text info_Armor;
-    public Text info_Mana;
-    public Text info_Damage;
-    public Text info_Speed;
 
     CharacterManager CM;
 
@@ -55,22 +42,6 @@ public class Temp_Text : MonoBehaviour
         xp.text = CM.GetCharacter(0).XP.ToString();
         xp_req.text = CM.GetCharacter(0).XP_required.ToString();
 
-
-        Attribute_Point.text = CM.GetCharacter(0).attributePoint.ToString();
-
-        CON.text = CM.GetCharacter(0).AD.CON.ToString();
-        WIS.text = CM.GetCharacter(0).AD.WIS.ToString();
-        STR.text = CM.GetCharacter(0).AD.STR.ToString();
-        DEX.text = CM.GetCharacter(0).AD.DEX.ToString();
-        INT.text = CM.GetCharacter(0).AD.INT.ToString();
-
-
-       
-        //info_Health.text = Inventory.instance.items[0].MaxHealthModifier.ToString();
-        //info_Health.text = Inventory.instance.items[0].MaxHealthModifier.ToString();
-        //info_Health.text = Inventory.instance.items[0].MaxHealthModifier.ToString();
-        //info_Health.text = Inventory.instance.items[0].MaxHealthModifier.ToString();
-        //info_Health.text = Inventory.instance.items[0].MaxHealthModifier.ToString();
     }
 
  
