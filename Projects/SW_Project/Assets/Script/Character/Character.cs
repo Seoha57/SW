@@ -45,14 +45,19 @@ public class Character : Entity
             AD = transform.GetComponent<AttributeDistribution>();
 
         ActionEvent Physical = new ActionEvent();
-        if (CombatSysMgr.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
         {
             Physical.AddListener(TakeDamage);
         }
         ActionEvent heal = new ActionEvent();
-        if (CombatSysMgr.actionEventDic.TryGetValue("SelfHeal", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("SelfHeal", out Physical))
         {
             Physical.AddListener(SelfRecovery);
+        }
+        ActionEvent reset = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("PlayerIsDead", out Physical))
+        {
+            Physical.AddListener(ResetCharacter);
         }
 
     }
@@ -81,6 +86,11 @@ public class Character : Entity
             if (this.HP >= this.init_MaxHealth)
                 this.HP = this.init_MaxHealth;
         }
+    }
+
+    void ResetCharacter(Entity e)
+    {
+        RESET_ATTRIBUTE();
     }
 
     public void OnAddButtonCON()

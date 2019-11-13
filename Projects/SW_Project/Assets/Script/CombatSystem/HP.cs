@@ -7,11 +7,14 @@ public class HP : MonoBehaviour
 {
     public GameObject owner;
     public Text m_text;
-    // Start is called before the first frame update
 
     // Update is called once per frame
     void Update()
     {
         m_text.text = owner.GetComponent<Entity>().HP.ToString();
+        if (!owner.activeSelf)
+        {
+            m_text.gameObject.SetActive(false);
+        }
     }
 }

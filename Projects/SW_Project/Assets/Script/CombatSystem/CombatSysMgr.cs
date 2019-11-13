@@ -23,10 +23,33 @@ public class Action
 
 public class CombatSysMgr : MonoBehaviour
 {
-    public static Dictionary<string, Action> actionDic;
-    public static Dictionary<string, ActionEvent> actionEventDic;
+    public Dictionary<string, Action> actionDic;
+    public Dictionary<string, ActionEvent> actionEventDic;
 
-    private void Awake()
+    private static CombatSysMgr combatMgr;
+
+    public static CombatSysMgr instance
+    {
+        get
+        {
+            if(!combatMgr)
+            {
+                combatMgr = FindObjectOfType(typeof(CombatSysMgr)) as CombatSysMgr;
+            }
+
+            if (!combatMgr)
+            {
+                Debug.LogError("There needs to be one active EventManger script on a GameObject in your scene.");
+            }
+            else
+            {
+                combatMgr.Init();
+            }
+            return combatMgr;
+        }
+    }
+
+    private void Init()
     {
         if (actionDic == null)
             actionDic = new Dictionary<string, Action>();
@@ -35,8 +58,7 @@ public class CombatSysMgr : MonoBehaviour
             actionEventDic = new Dictionary<string, ActionEvent>();
     }
 
-
-    public static ActionEvent GetActionEvent(string eventname)
+    public ActionEvent GetActionEvent(string eventname)
     {
         foreach (KeyValuePair<string, ActionEvent> entry in actionEventDic)
         {
@@ -46,7 +68,7 @@ public class CombatSysMgr : MonoBehaviour
         return null;
     }
 
-    public static void TriggerAction(string ActionName, GameObject user)
+    public void TriggerAction(string ActionName, GameObject user)
     {
         foreach (KeyValuePair<string, Action> entry in actionDic)
         {
@@ -55,7 +77,7 @@ public class CombatSysMgr : MonoBehaviour
         }
     }
 
-    public static float TriggerActionEvent(string AEname, Entity user)
+    public float TriggerActionEvent(string AEname, Entity user)
     {
         float value = 0;
         foreach (KeyValuePair<string, ActionEvent> entry in actionEventDic)

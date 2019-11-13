@@ -9,6 +9,6 @@ public class Skill_02 : MonoBehaviour
 
     public void FireAction()
     {
-        CombatSysMgr.TriggerAction(actionName, owner);
+        CombatSysMgr.instance.TriggerAction(actionName, owner);
     }
 }

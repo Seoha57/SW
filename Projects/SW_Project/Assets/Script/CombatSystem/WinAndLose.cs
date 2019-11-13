@@ -10,12 +10,12 @@ public class WinAndLose : MonoBehaviour
     void Start()
     {
         ActionEvent LoseEvent = new ActionEvent();
-        if (CombatSysMgr.actionEventDic.TryGetValue("PlayerIsDead", out LoseEvent))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("PlayerIsDead", out LoseEvent))
         {
             LoseEvent.AddListener(Lose);
         }
         ActionEvent WinEvent = new ActionEvent();
-        if (CombatSysMgr.actionEventDic.TryGetValue("EnemyIsDead", out WinEvent))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("AllEnemyIsDead", out WinEvent))
         {
             WinEvent.AddListener(Win);
         }

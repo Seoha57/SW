@@ -14,7 +14,7 @@ public class Entity : MonoBehaviour
     void Start()
     {
         ActionEvent Physical = new ActionEvent();
-        if (CombatSysMgr.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
         {
             Physical.AddListener(TakeDamage);
         }
@@ -22,7 +22,7 @@ public class Entity : MonoBehaviour
 
     void TakeDamage(Entity e)
     {
-        if (e.target.GetComponent<Entity>() == this)
+        if (e.target.GetComponent<Entity>().ID == this.ID)
         {
             this.HP -= Actions.GetPhysicalDamage();
             if (this.HP <= 0)

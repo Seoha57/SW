@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GoToNextScene : MonoBehaviour
+public class GoToStartMenu : MonoBehaviour
 {
     public Button m_button;
+    // Start is called before the first frame update
     void Start()
     {
-        ActionEvent WinEvent = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("AllEnemyIsDead", out WinEvent))
+        ActionEvent LoseEvent = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("PlayerIsDead", out LoseEvent))
         {
-            WinEvent.AddListener(ShowButton);
+            LoseEvent.AddListener(ShowButton);
         }
         m_button.gameObject.SetActive(false);
     }

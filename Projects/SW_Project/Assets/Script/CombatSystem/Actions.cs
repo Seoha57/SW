@@ -6,16 +6,17 @@ using UnityEngine.Events;
 public class Actions : MonoBehaviour
 {
     ActionHelper actionHelper;
+    CombatSysMgr instance;
 
     public int comboCount = 3;
     private static int tempComboCount = 0;
     private static float GCD = 4.0f;
     private static float GCDTimer = 0;
-    private static float[,] OGCD;
+    private static float[] OGCD;
     private static float[] OGCDTimer;
 
-    public static float EnemyAttackCooltime = 3.0f;
-    private static float EnemyAttackTimer = 0;
+    public static float[] EnemyAttackCooltime;
+    private static float[] EnemyAttackTimer;
 
     private static float damage = 0;
     private static float recoveryValue = 0;
@@ -24,6 +25,7 @@ public class Actions : MonoBehaviour
     bool enemyAlive = true;
 
     static bool isFirst = true;
+    static int enemyDieCount;
 
     public GameObject[] player;
     public GameObject[] enemy;
@@ -31,16 +33,28 @@ public class Actions : MonoBehaviour
     private void OnEnable()
     {
         actionHelper = GetComponent<ActionHelper>();
+        instance = CombatSysMgr.instance;
 
-        EnemyAttackTimer = EnemyAttackCooltime;
+        playerAlive = true;
+        enemyAlive = true;
+
         if (isFirst)
         {
+            EnemyAttackCooltime = new float[enemy.Length];
+            EnemyAttackTimer = new float[enemy.Length];
+
             OGCDTimer = new float[2];
-            OGCD = new float[3, 4];
-            OGCD[0, 0] = 3.0f;
-            OGCD[0, 1] = 5.0f;
+            OGCD = new float[4];
+            OGCD[0] = 3.0f;
+            OGCD[1] = 5.0f;
             isFirst = false;
+
+            for(int i = 0; i < enemy.Length; ++i)
+            {
+                EnemyAttackCooltime[i] = 5.0f + Random.Range(-2, 2);
+            }
         }
+        enemyDieCount = 0;
 
         AddActionsToDictionary();
     }
@@ -52,81 +66,113 @@ public class Actions : MonoBehaviour
         GCDTimer = GCD;
         for (int i = 0; i < OGCDTimer.Length; ++i)
         {
-            OGCDTimer[i] = OGCD[0, i];
+            OGCDTimer[i] = OGCD[i];
         }
+
+        for (int i = 0; i < enemy.Length; ++i)
+        {
+            EnemyAttackTimer[i] = EnemyAttackCooltime[i];
+        }
+        enemyDieCount = 0;
     }
 
     void AddActionsToDictionary()
     {
+        /*Action Event list*/
         ActionEvent check = null;
-        CombatSysMgr.actionEventDic.TryGetValue("TakePhysicalDamage", out check);
+        instance.actionEventDic.TryGetValue("TakePhysicalDamage", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("TakePhysicalDamage", new ActionEvent());
+            instance.actionEventDic.Add("TakePhysicalDamage", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("OGCD1_Init", out check);
+        instance.actionEventDic.TryGetValue("OGCD1_Init", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("OGCD1_Init", new ActionEvent());
+            CombatSysMgr.instance.actionEventDic.Add("OGCD1_Init", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("OGCD2_Init", out check);
+        instance.actionEventDic.TryGetValue("OGCD2_Init", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("OGCD2_Init", new ActionEvent());
+            instance.actionEventDic.Add("OGCD2_Init", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("GCDInitialize", out check);
+        instance.actionEventDic.TryGetValue("GCDInitialize", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("GCDInitialize", new ActionEvent());
+            instance.actionEventDic.Add("GCDInitialize", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("SelfHeal", out check);
+        instance.actionEventDic.TryGetValue("SelfHeal", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("SelfHeal", new ActionEvent());
+            instance.actionEventDic.Add("SelfHeal", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("PlayerIsAlive", out check);
+        instance.actionEventDic.TryGetValue("PlayerIsAlive", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("PlayerIsAlive", new ActionEvent());
+            instance.actionEventDic.Add("PlayerIsAlive", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("PlayerIsDead", out check);
+        instance.actionEventDic.TryGetValue("PlayerIsDead", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("PlayerIsDead", new ActionEvent());
+            instance.actionEventDic.Add("PlayerIsDead", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("EnemyIsAlive", out check);
+        instance.actionEventDic.TryGetValue("EnemyIsAlive", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("EnemyIsAlive", new ActionEvent());
+            instance.actionEventDic.Add("EnemyIsAlive", new ActionEvent());
 
-        CombatSysMgr.actionEventDic.TryGetValue("EnemyIsDead", out check);
+        instance.actionEventDic.TryGetValue("EnemyIsDead", out check);
         if (check == null)
-            CombatSysMgr.actionEventDic.Add("EnemyIsDead", new ActionEvent());
+            instance.actionEventDic.Add("EnemyIsDead", new ActionEvent());
 
+        instance.actionEventDic.TryGetValue("TargetIsChanged", out check);
+        if (check == null)
+            instance.actionEventDic.Add("TargetIsChanged", new ActionEvent());
 
+        instance.actionEventDic.TryGetValue("AllEnemyIsDead", out check);
+        if (check == null)
+            instance.actionEventDic.Add("AllEnemyIsDead", new ActionEvent());
+
+        /*Action list*/
         Action holder = null;
-        CombatSysMgr.actionDic.TryGetValue("DaggerStrike", out holder);
+        instance.actionDic.TryGetValue("DaggerStrike", out holder);
         if (holder == null)
         {
             holder = new Action();
             holder.AEfList = new List<ActionEffect>();
             holder.AEfList.Add(DealPhysicalDamage);
             holder.AEfList.Add(TargetHPCheck);
-            CombatSysMgr.actionDic.Add("DaggerStrike", holder);
+            instance.actionDic.Add("DaggerStrike", holder);
         }
 
         Action autoAttack = null;
-        CombatSysMgr.actionDic.TryGetValue("AutoAttack", out autoAttack);
+        instance.actionDic.TryGetValue("AutoAttack", out autoAttack);
         if (autoAttack == null)
         {
             autoAttack = new Action();
             autoAttack.AEfList = new List<ActionEffect>();
             autoAttack.AEfList.Add(DealPhysicalComboDamage);
             autoAttack.AEfList.Add(TargetHPCheck);
-            CombatSysMgr.actionDic.Add("AutoAttack", autoAttack);
+            instance.actionDic.Add("AutoAttack", autoAttack);
         }
 
         Action recovery = null;
-        CombatSysMgr.actionDic.TryGetValue("SelfRecovery", out recovery);
+        instance.actionDic.TryGetValue("SelfRecovery", out recovery);
         if (recovery == null)
         {
             recovery = new Action();
             recovery.AEfList = new List<ActionEffect>();
             recovery.AEfList.Add(SelfHeal);
             recovery.AEfList.Add(TargetHPCheck);
-            CombatSysMgr.actionDic.Add("SelfRecovery", recovery);
+            instance.actionDic.Add("SelfRecovery", recovery);
+        }
+
+        /*Listen*/
+        ActionEvent hit = new ActionEvent();
+        if (instance.actionEventDic.TryGetValue("EnemyIsDead", out hit))
+        {
+            hit.AddListener(EnemyCheck);
+        }
+        ActionEvent findNewTarget = new ActionEvent();
+        if (instance.actionEventDic.TryGetValue("EnemyIsDead", out hit))
+        {
+            hit.AddListener(ChangeTarget);
+        }
+        ActionEvent targetChange = new ActionEvent();
+        if (instance.actionEventDic.TryGetValue("TargetIsChanged", out hit))
+        {
+            hit.AddListener(ShowTarget);
         }
     }
 
@@ -136,9 +182,16 @@ public class Actions : MonoBehaviour
 
         for (int i = 0; i < OGCDTimer.Length; ++i)
         {
-            OGCDTimer[i] = OGCD[0, i];
+            OGCDTimer[i] = OGCD[i];
         }
         GCDTimer = GCD;
+
+        for (int i = 0; i < enemy.Length; ++i)
+        {
+            EnemyAttackTimer[i] = EnemyAttackCooltime[i];
+        }
+
+        player[0].GetComponent<Entity>().target.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     private void Update()
@@ -149,18 +202,20 @@ public class Actions : MonoBehaviour
             OGCDTimer[1] -= Time.deltaTime;
 
         GCDTimer -= Time.deltaTime;
-        EnemyAttackTimer -= Time.deltaTime;
+        for (int i = 0; i < enemy.Length; ++i)
+        {
+            EnemyAttackTimer[i] -= Time.deltaTime;
+
+            if (EnemyAttackTimer[i] < 0 && (enemyAlive && playerAlive))
+            {
+                instance.TriggerAction("DaggerStrike", enemy[i]);
+                EnemyAttackTimer[i] = EnemyAttackCooltime[i];
+            }
+        }
 
         if (GCDTimer < 0 && (enemyAlive && playerAlive))
         {
-            CombatSysMgr.TriggerAction("AutoAttack", player[0]);
-            Debug.Log(GCD);
-        }
-
-        if (EnemyAttackTimer < 0 && (enemyAlive && playerAlive))
-        {
-            CombatSysMgr.TriggerAction("DaggerStrike", enemy[0]);
-            EnemyAttackTimer = EnemyAttackCooltime;
+            instance.TriggerAction("AutoAttack", player[0]);
         }
     }
 
@@ -174,9 +229,9 @@ public class Actions : MonoBehaviour
         return recoveryValue;
     }
 
-    public static float GetOGCD1Duration(int userNum, int skillNum)
+    public static float GetOGCD1Duration(int skillNum)
     {
-        return OGCD[userNum, skillNum];
+        return OGCD[skillNum];
     }
 
     public static float GetOGCD1Timer(int num)
@@ -201,17 +256,30 @@ public class Actions : MonoBehaviour
         {
             if (OGCDTimer[0] <= 0 && (playerAlive && enemyAlive))
             {
-                CombatSysMgr.TriggerActionEvent("TakePhysicalDamage", e);
-                CombatSysMgr.TriggerActionEvent("OGCD1_Init", e);
-                OGCDTimer[0] = OGCD[0, 0];
+                instance.TriggerActionEvent("TakePhysicalDamage", e);
+                instance.TriggerActionEvent("OGCD1_Init", e);
+                OGCDTimer[0] = OGCD[0];
             }
         }
         else if (e.ID == 10)
         {
-            if (EnemyAttackTimer <= 0 && (playerAlive && enemyAlive))
+            if (EnemyAttackTimer[0] <= 0 && (playerAlive && enemyAlive))
             {
-                CombatSysMgr.TriggerActionEvent("TakePhysicalDamage", e);
-                EnemyAttackTimer = EnemyAttackCooltime;
+                instance.TriggerActionEvent("TakePhysicalDamage", e);
+            }
+        }
+        else if (e.ID == 11)
+        {
+            if (EnemyAttackTimer[1] <= 0 && (playerAlive && enemyAlive))
+            {
+                instance.TriggerActionEvent("TakePhysicalDamage", e);
+            }
+        }
+        else if (e.ID == 12)
+        {
+            if (EnemyAttackTimer[2] <= 0 && (playerAlive && enemyAlive))
+            {
+                instance.TriggerActionEvent("TakePhysicalDamage", e);
             }
         }
     }
@@ -231,8 +299,8 @@ public class Actions : MonoBehaviour
             {
                 tempComboCount = 0;
             }
-            CombatSysMgr.TriggerActionEvent("TakePhysicalDamage", e);
-            CombatSysMgr.TriggerActionEvent("GCDInitialize", e);
+            instance.TriggerActionEvent("TakePhysicalDamage", e);
+            instance.TriggerActionEvent("GCDInitialize", e);
             GCDTimer = GCD;
         }
     }
@@ -242,33 +310,73 @@ public class Actions : MonoBehaviour
         recoveryValue = 5.0f;
         if (OGCDTimer[1] <= 0 && playerAlive && enemyAlive)
         {
-            CombatSysMgr.TriggerActionEvent("SelfHeal", e);
-            CombatSysMgr.TriggerActionEvent("OGCD2_Init", e);
-            OGCDTimer[1] = OGCD[0, 1];
+            instance.TriggerActionEvent("SelfHeal", e);
+            instance.TriggerActionEvent("OGCD2_Init", e);
+            OGCDTimer[1] = OGCD[1];
         }
     }
 
     void TargetHPCheck(Entity e)
     {
-        if (e.ID == 0 && !e.target.activeSelf)
-        {
-            enemyAlive = false;
-            CombatSysMgr.TriggerActionEvent("EnemyIsDead", e);
-        }
-        if (e.ID == 0 && e.gameObject.activeSelf)
-        {
-            playerAlive = true;
-            CombatSysMgr.TriggerActionEvent("PlayerIsAlive", e);
-        }
-        if (e.ID == 10 && !e.target.activeSelf)
+        //if (e.ID == 0 && !e.target.activeSelf)
+        //{
+        //    enemyAlive = false;
+        //    instance.TriggerActionEvent("EnemyIsDead", e);
+        //}
+        //if (e.ID == 0 && e.gameObject.activeSelf)
+        //{
+        //    playerAlive = true;
+        //    instance.TriggerActionEvent("PlayerIsAlive", e);
+        //}
+        //if (e.ID == 10 && !e.target.activeSelf)
+        //{
+        //    playerAlive = false;
+        //    instance.TriggerActionEvent("PlayerIsDead", e);
+        //}
+        //if (e.ID == 10 && e.gameObject.activeSelf)
+        //{
+        //    enemyAlive = true;
+        //    instance.TriggerActionEvent("EnemyIsAlive", e);
+        //}
+        if(e.target.GetComponent<Entity>().ID == 0 && !e.target.activeSelf)
         {
             playerAlive = false;
-            CombatSysMgr.TriggerActionEvent("PlayerIsDead", e);
+            instance.TriggerActionEvent("PlayerIsDead", e);
         }
-        if (e.ID == 10 && e.gameObject.activeSelf)
+        else if(e.target.GetComponent<Entity>().ID >= 10 && !e.target.activeSelf)
         {
-            enemyAlive = true;
-            CombatSysMgr.TriggerActionEvent("EnemyIsAlive", e);
+            instance.TriggerActionEvent("EnemyIsDead", e);
         }
+    }
+
+    void EnemyCheck(Entity e)
+    {
+        ++enemyDieCount;
+        if(enemyDieCount == enemy.Length)
+        {
+            enemyAlive = false;
+            instance.TriggerActionEvent("AllEnemyIsDead", e);
+        }
+    }
+
+    void ChangeTarget(Entity e)
+    {
+        if(enemyDieCount != enemy.Length)
+        {
+            for(int i = 0; i < enemy.Length; ++i)
+            {
+                if (enemy[i].activeSelf)
+                {
+                    e.target = enemy[i];
+                    instance.TriggerActionEvent("TargetIsChanged", e);
+                    break;
+                }
+            }
+        }
+    }
+
+    void ShowTarget(Entity e)
+    {
+        e.target.transform.GetChild(0).gameObject.SetActive(true);
     }
 }

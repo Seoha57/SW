@@ -8,12 +8,14 @@ public class DamageSpawn : MonoBehaviour
     public GameObject owner;
     public Text m_text;
     float timer = 0;
+    int ownerID;
 
     void Start()
     {
+        ownerID = owner.GetComponent<Entity>().ID;
         m_text.gameObject.SetActive(false);
         ActionEvent Physical = new ActionEvent();
-        if (CombatSysMgr.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
         {
             Physical.AddListener(GetDamage);
         }
@@ -34,7 +36,7 @@ public class DamageSpawn : MonoBehaviour
 
     void GetDamage(Entity e)
     {
-        if (owner.GetComponent<Entity>() == e)
+        if (ownerID == e.target.GetComponent<Entity>().ID)
         {
             m_text.gameObject.SetActive(true);
             m_text.text = Actions.GetPhysicalDamage().ToString();

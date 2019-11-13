@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SW_Demo/CharacterSystem.unity
     guid: c8044c6d87e590d40ab869eba01018ed
   - enabled: 1
-    path: Assets/Scenes/CombatSystemTest.unity
+    path: Assets/Scenes/SW_Demo/Stage1.unity
     guid: 1aa97f2c193d78849a033e3f910d1c09
   - enabled: 0
     path: Assets/Scenes/Demo/Start.unity
@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SW_Demo/Start.unity
     guid: 3e2e7692b6643f241a9c7d61d9177e3c
+  - enabled: 1
+    path: Assets/Scenes/SW_Demo/Stage2.unity
+    guid: e6cb59e7f35657b4689cc98a6a1af5cb
   m_configObjects: {}

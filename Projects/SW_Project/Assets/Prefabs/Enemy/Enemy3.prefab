@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb10fc0e2390f3d46885b557de07d8b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 3
+  ID: 12
   HP: 100
   attribute: {fileID: 3007795669863142758}
   target: {fileID: 0}
