@@ -38,25 +38,28 @@ public class Actions : MonoBehaviour
         playerAlive = true;
         enemyAlive = true;
 
+        EnemyAttackCooltime = new float[enemy.Length];
+        EnemyAttackTimer = new float[enemy.Length];
+
+        for (int i = 0; i < enemy.Length; ++i)
+        {
+            EnemyAttackCooltime[i] = 5.0f + Random.Range(-2, 2);
+        }
+
         if (isFirst)
         {
-            EnemyAttackCooltime = new float[enemy.Length];
-            EnemyAttackTimer = new float[enemy.Length];
-
             OGCDTimer = new float[2];
             OGCD = new float[4];
             OGCD[0] = 3.0f;
             OGCD[1] = 5.0f;
             isFirst = false;
 
-            for(int i = 0; i < enemy.Length; ++i)
-            {
-                EnemyAttackCooltime[i] = 5.0f + Random.Range(-2, 2);
-            }
         }
         enemyDieCount = 0;
 
         AddActionsToDictionary();
+
+        Time.timeScale = 1.0f;
     }
 
     private void OnDisable()
