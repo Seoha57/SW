@@ -6,8 +6,7 @@ public class EquipSlot : MonoBehaviour
 {
     public Image icon;
     public Button removeButton;
-    public GameObject equipInfo;
-
+    public GameObject removeObject;
     public Item item;
     public bool isSelected = false;
     int index;
@@ -21,6 +20,7 @@ public class EquipSlot : MonoBehaviour
         icon.sprite = item.icon;
         icon.enabled = true;
         removeButton.interactable = true;
+        removeObject.SetActive(true);
 
 
     }
@@ -30,6 +30,7 @@ public class EquipSlot : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
         removeButton.interactable = false;
+        removeObject.SetActive(false);
     }
     public void OnRemoveButton()
     {
@@ -38,10 +39,7 @@ public class EquipSlot : MonoBehaviour
         ClearSlot();
 
     }
-    public void OnInfoButton()
-    {
-        equipInfo.SetActive(!equipInfo.activeSelf);
-    }
+
     public void UseItem()
     {
  

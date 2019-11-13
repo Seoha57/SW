@@ -5,6 +5,9 @@ public class EquipInfo : MonoBehaviour
 {
 
     [Header("Equip Info")]
+    public GameObject removeObject;
+    public GameObject characterInfo;
+
     public EquipSlot equipSlot;
     public Text MaxHealthModifier;
     public Text ArmorModifier;
@@ -27,4 +30,10 @@ public class EquipInfo : MonoBehaviour
     {
        
     }
+    public void RemoveClick()
+    {
+        characterInfo.SetActive(false);
+        removeObject.SetActive(false);
+    }
+        
 }
