@@ -62,7 +62,6 @@ public class Actions : MonoBehaviour
     private void OnDisable()
     {
         tempComboCount = 0;
-        EnemyAttackTimer = EnemyAttackCooltime;
         GCDTimer = GCD;
         for (int i = 0; i < OGCDTimer.Length; ++i)
         {
@@ -219,36 +218,6 @@ public class Actions : MonoBehaviour
         }
     }
 
-    public static float GetPhysicalDamage()
-    {
-        return damage;
-    }
-
-    public static float GetRecoveryValue()
-    {
-        return recoveryValue;
-    }
-
-    public static float GetOGCD1Duration(int skillNum)
-    {
-        return OGCD[skillNum];
-    }
-
-    public static float GetOGCD1Timer(int num)
-    {
-        return OGCDTimer[num];
-    }
-
-    public static float GetGCDDuration()
-    {
-        return GCD;
-    }
-
-    public static float GetGCDTimer()
-    {
-        return GCDTimer;
-    }
-
     void DealPhysicalDamage(Entity e)
     {
         damage = actionHelper.DamageMod(e, AttackType.PHYSICAL);
@@ -263,21 +232,21 @@ public class Actions : MonoBehaviour
         }
         else if (e.ID == 10)
         {
-            if (EnemyAttackTimer[0] <= 0 && (playerAlive && enemyAlive))
+            if (EnemyAttackTimer[0] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
                 instance.TriggerActionEvent("TakePhysicalDamage", e);
             }
         }
         else if (e.ID == 11)
         {
-            if (EnemyAttackTimer[1] <= 0 && (playerAlive && enemyAlive))
+            if (EnemyAttackTimer[1] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
                 instance.TriggerActionEvent("TakePhysicalDamage", e);
             }
         }
         else if (e.ID == 12)
         {
-            if (EnemyAttackTimer[2] <= 0 && (playerAlive && enemyAlive))
+            if (EnemyAttackTimer[2] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
                 instance.TriggerActionEvent("TakePhysicalDamage", e);
             }
@@ -378,5 +347,35 @@ public class Actions : MonoBehaviour
     void ShowTarget(Entity e)
     {
         e.target.transform.GetChild(0).gameObject.SetActive(true);
+    }
+
+    public static float GetPhysicalDamage()
+    {
+        return damage;
+    }
+
+    public static float GetRecoveryValue()
+    {
+        return recoveryValue;
+    }
+
+    public static float GetOGCDDuration(int skillNum)
+    {
+        return OGCD[skillNum];
+    }
+
+    public static float GetOGCDTimer(int num)
+    {
+        return OGCDTimer[num];
+    }
+
+    public static float GetGCDDuration()
+    {
+        return GCD;
+    }
+
+    public static float GetGCDTimer()
+    {
+        return GCDTimer;
     }
 }
