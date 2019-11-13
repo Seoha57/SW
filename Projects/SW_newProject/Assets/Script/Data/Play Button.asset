@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8a841801f981e47a6e4a1ee469421e, type: 3}
+  m_Name: Play Button
+  m_EditorClassIdentifier: 
+  buttonSprite: {fileID: 21300000, guid: 6231da2c8610b684b94fc2ed6f9252c5, type: 3}
+  buttonSpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: 1d57e8cfec5195e4785d4ae680669831,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 1d57e8cfec5195e4785d4ae680669831, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 1d57e8cfec5195e4785d4ae680669831, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 6231da2c8610b684b94fc2ed6f9252c5, type: 3}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  defaultIcon: {fileID: 21300000, guid: 5e01de028b3d2eb4abbdd35b958d777b, type: 3}
+  playColor: {r: 0, g: 0, b: 0, a: 0}
+  playIcon: {fileID: 0}
+  legendsColor: {r: 0, g: 0, b: 0, a: 0}
+  legendsIcon: {fileID: 0}
+  itemColor: {r: 0, g: 0, b: 0, a: 0}
+  itemIcon: {fileID: 0}
+  storeColor: {r: 0, g: 0, b: 0, a: 0}
+  storeIcon: {fileID: 0}
