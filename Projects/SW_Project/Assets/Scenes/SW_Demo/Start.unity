@@ -568,6 +568,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectMode: {fileID: 435966031}
   UIbutton: {fileID: 242717582}
+  BSC: {fileID: 891525882}
+  mode: 0
 --- !u!1 &435966031
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,6 +831,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798350896}
   m_CullTransparentMesh: 0
+--- !u!1001 &822907705
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5892728130440147725, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_Name
+      value: User
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 173.4832
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 221.8239
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -417.4642
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070918882490602809, guid: 7c1592cb6224cb94c99892f6d27c4e12,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
 --- !u!1 &891525876
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +1061,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d261b6e4d7f3b7f4ab2496de98cffc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< Updated upstream
   SceneName: Stage2
+=======
+  SceneName: Stage1
+>>>>>>> Stashed changes
 --- !u!1 &913112581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,7 +2538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d261b6e4d7f3b7f4ab2496de98cffc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: CharacterSystem
+  SceneName: Legends
 --- !u!1 &1637312104
 GameObject:
   m_ObjectHideFlags: 0

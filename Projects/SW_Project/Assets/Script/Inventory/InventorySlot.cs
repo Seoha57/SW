@@ -5,6 +5,7 @@ public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public Button removeButton;
+    public GameObject info;
     public bool isSelected = false;
 
     public Item item;
@@ -37,7 +38,10 @@ public class InventorySlot : MonoBehaviour
     {
         Debug.Log("Click " + name);
         if(item != null)
-            isSelected = (isSelected)? false:true;
+        {
+            isSelected = (isSelected) ? false : true;
+        }
+            
     }
 
     public void UseItem()

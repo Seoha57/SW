@@ -15,6 +15,8 @@ public class ItemInfo : MonoBehaviour
     public Transform equipParent1;
     public Transform equipParent2;
 
+    public CharacterInfo characterinfo;
+    public GameObject equipinfo;
     Inventory inventory;
     InventorySlot[] slots;
     EquipSlot[] equipslots1;
@@ -75,7 +77,7 @@ public class ItemInfo : MonoBehaviour
 
     private void Update()
     {
-
+        id = characterinfo.ID;
         for (int i = 0; i < slots.Length; i++)
         {
             if(slots[i].isSelected)
@@ -131,6 +133,7 @@ public class ItemInfo : MonoBehaviour
     {
         if (SelectedIndex != 100)
         {
+
             inventory.items[SelectedIndex].Equip(id);
             SelectedIndex = 100;
         }
@@ -138,7 +141,6 @@ public class ItemInfo : MonoBehaviour
     }
     public void UnEquip()
     {
-
         if (SelectedIndex != 100 && SelectEquipment1)
         {
             equipslots1[SelectedIndex].OnRemoveButton();

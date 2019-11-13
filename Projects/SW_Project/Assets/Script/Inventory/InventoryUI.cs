@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     public Transform equipParent2;
     public GameObject equipUI;
 
+    public CharacterInfo characterinfo;
 
     Inventory inventory;
     EquipmentManager equipmentManager;
@@ -20,6 +21,8 @@ public class InventoryUI : MonoBehaviour
     InventorySlot[] slots;
     EquipSlot[] equipSlots1;
     EquipSlot[] equipSlots2;
+
+    int ID;
     //InventorySlot[] equipSlots;
     private void Start()
     {
@@ -67,14 +70,14 @@ public class InventoryUI : MonoBehaviour
 
     public void UpdateEquipUI()
     {
-    
 
+        ID = characterinfo.ID;
         for (int i = 0; i < equipSlots1.Length; i++)
         {
 
-            equipSlots1[i].id = 0;
-            if (CM.GetCharacter(0).items[i] != null)
-                equipSlots1[i].AddItem(CM.GetCharacter(0).items[i]);
+            equipSlots1[i].id = ID;
+            if (CM.GetCharacter(ID).items[i] != null)
+                equipSlots1[i].AddItem(CM.GetCharacter(ID).items[i]);
             else
                 equipSlots1[i].ClearSlot();
 

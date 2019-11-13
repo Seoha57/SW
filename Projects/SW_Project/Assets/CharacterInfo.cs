@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CharacterInfo : MonoBehaviour
 {
-    public CharacterManager CM;
     public Transform equipParant;
 
     public Text Name;
@@ -19,12 +18,13 @@ public class CharacterInfo : MonoBehaviour
     public Text level;
 
 
-    int ID = 0;
+    public int ID = 0;
     Character m_char;
     EquipSlot[] equipSlots;
-  
 
-    
+    CharacterManager CM;
+
+
     private void Start()
     {
         CM = CharacterManager.instance;

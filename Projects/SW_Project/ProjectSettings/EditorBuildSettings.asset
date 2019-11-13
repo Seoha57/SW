@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SW_Demo/CharacterSystem.unity
+    path: Assets/Scenes/SW_Demo/Legends.unity
     guid: c8044c6d87e590d40ab869eba01018ed
   - enabled: 1
     path: Assets/Scenes/SW_Demo/Stage1.unity
