@@ -1061,11 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d261b6e4d7f3b7f4ab2496de98cffc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  SceneName: Stage2
-=======
   SceneName: Stage1
->>>>>>> Stashed changes
 --- !u!1 &913112581
 GameObject:
   m_ObjectHideFlags: 0
