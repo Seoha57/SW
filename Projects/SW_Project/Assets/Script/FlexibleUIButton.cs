@@ -11,10 +11,10 @@ public class FlexibleUIButton : FlexibleUI
     public enum ButtonType
     {
         Defalut,
-        Play,
-        Legends,
-        Item,
-        Store
+        Type1,
+        Type2,
+        Type3,
+        Type4
     }
 
     Image image;
@@ -44,22 +44,22 @@ public class FlexibleUIButton : FlexibleUI
                 image.color = skinData.defaultColor;
                 icon.sprite = skinData.defaultIcon;
                 break;
-            case ButtonType.Play:
-                image.color = skinData.playColor;
-                icon.sprite = skinData.playIcon;
+            case ButtonType.Type1:
+                image.color = skinData.type1Color;
+                icon.sprite = skinData.type1Icon;
                 break;
-            case ButtonType.Legends:
-                image.color = skinData.legendsColor;
-                icon.sprite = skinData.legendsIcon;
+            case ButtonType.Type2:
+                image.color = skinData.type2Color;
+                icon.sprite = skinData.type2Icon;
 
                 break;
-            case ButtonType.Item:
-                image.color = skinData.itemColor;
-                icon.sprite = skinData.itemIcon;
+            case ButtonType.Type3:
+                image.color = skinData.type3Color;
+                icon.sprite = skinData.type3Icon;
                 break;
-            case ButtonType.Store:
-                image.color = skinData.storeColor;
-                icon.sprite = skinData.storeIcon;
+            case ButtonType.Type4:
+                image.color = skinData.type4Color;
+                icon.sprite = skinData.type4Icon;
                 break;
             default:
                 break;

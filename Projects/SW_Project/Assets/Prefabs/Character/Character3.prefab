@@ -113,7 +113,7 @@ MonoBehaviour:
   attribute: {fileID: 2077652879324677737}
   target: {fileID: 0}
   AD: {fileID: 5955494931754937548}
-  Name: 
+  Name: Wizard
   attributePoint: 5
   Level: 1
   XP: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757f16ef9c4e4eb45873524b2360645e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 300
   Armor: 10
   Mana: 10
   Damage: 10

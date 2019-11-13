@@ -13,16 +13,16 @@ public class FlexibleUIData : ScriptableObject
     public Color defaultColor;
     public Sprite defaultIcon;
 
-    public Color playColor;
-    public Sprite playIcon;
+    public Color type1Color;
+    public Sprite type1Icon;
 
-    public Color legendsColor;
-    public Sprite legendsIcon;
+    public Color type2Color;
+    public Sprite type2Icon;
 
-    public Color itemColor;
-    public Sprite itemIcon;
+    public Color type3Color;
+    public Sprite type3Icon;
 
-    public Color storeColor;
-    public Sprite storeIcon;
+    public Color type4Color;
+    public Sprite type4Icon;
 
 }

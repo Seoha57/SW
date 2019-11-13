@@ -47,6 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
   Gold: 943
+  characterManager: {fileID: 2075096460}
+  inventory: {fileID: 2075096461}
 --- !u!114 &2075096460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67,6 +69,7 @@ MonoBehaviour:
   - {fileID: 5694490111918616033, guid: c315be3d426b6be4990d4adb5f2d489b, type: 3}
   - {fileID: 2889468284922009942, guid: ee9f08929b30e234bad6eb6fdd0db6a6, type: 3}
   - {fileID: 3007795669863142759, guid: 91194a9907435344b9c7cb8b30b73dc2, type: 3}
+  characters: []
 --- !u!114 &2075096461
 MonoBehaviour:
   m_ObjectHideFlags: 0
