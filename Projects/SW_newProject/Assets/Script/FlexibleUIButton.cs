@@ -14,7 +14,8 @@ public class FlexibleUIButton : FlexibleUI
         Type1,
         Type2,
         Type3,
-        Type4
+        Type4,
+        Type5
     }
 
     Image image;
@@ -60,6 +61,10 @@ public class FlexibleUIButton : FlexibleUI
             case ButtonType.Type4:
                 image.color = skinData.type4Color;
                 icon.sprite = skinData.type4Icon;
+                break;
+            case ButtonType.Type5:
+                image.color = skinData.type5Color;
+                icon.sprite = skinData.type5Icon;
                 break;
             default:
                 break;

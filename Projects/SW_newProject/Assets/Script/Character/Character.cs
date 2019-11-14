@@ -171,6 +171,12 @@ public class Character : Entity
         CharacterManager.instance.SetMana(ID, 10);
         CharacterManager.instance.SetDamage(ID, 10);
         CharacterManager.instance.SetSpeed(ID, 10);
+
+        for (int i = 0; i < items.Length; i++)
+        {
+            CharacterManager.instance.GetCharacter(ID).items[i] = null;
+        }
+
         Setting();
 
     }

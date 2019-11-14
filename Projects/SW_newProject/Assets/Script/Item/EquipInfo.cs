@@ -28,7 +28,6 @@ public class EquipInfo : MonoBehaviour
 
     private void Update()
     {
-       
     }
     public void RemoveClick()
     {

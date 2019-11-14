@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8a841801f981e47a6e4a1ee469421e, type: 3}
   m_Name: SelectMode Button
   m_EditorClassIdentifier: 
-  buttonSprite: {fileID: 21300000, guid: da5f6b6ee7c82994eaefa5f9ee67c467, type: 3}
+  buttonSprite: {fileID: 21300000, guid: 433e582acba2da348b703cfa4ea2ff05, type: 3}
   buttonSpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f80042dd470fa4b4f997ede05de98531,
+    m_HighlightedSprite: {fileID: 21300000, guid: 9bfeb017cecb83a4aafcda3f8161fbb4,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: f80042dd470fa4b4f997ede05de98531, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: f80042dd470fa4b4f997ede05de98531, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: da5f6b6ee7c82994eaefa5f9ee67c467, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 9bfeb017cecb83a4aafcda3f8161fbb4, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 9bfeb017cecb83a4aafcda3f8161fbb4, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 433e582acba2da348b703cfa4ea2ff05, type: 3}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   defaultIcon: {fileID: 21300000, guid: 211ec0c6efde102428c0c1be7cb68180, type: 3}
   type1Color: {r: 1, g: 1, b: 1, a: 1}
@@ -29,3 +29,5 @@ MonoBehaviour:
   type3Icon: {fileID: 21300000, guid: d001fbd16d26b3a47a3c2c3803e4a279, type: 3}
   type4Color: {r: 1, g: 1, b: 1, a: 1}
   type4Icon: {fileID: 0}
+  type5Color: {r: 0, g: 0, b: 0, a: 0}
+  type5Icon: {fileID: 0}

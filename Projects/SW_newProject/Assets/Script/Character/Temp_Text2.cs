@@ -30,7 +30,7 @@ public class Temp_Text2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        gold.text = "+" + RewardManager.instance.GetRandomGold();
         type.text = RewardManager.instance.GetRandomItem().name;
     }
 

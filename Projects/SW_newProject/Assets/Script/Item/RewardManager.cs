@@ -40,7 +40,7 @@ public class RewardManager : MonoBehaviour
 
     public void RandomSpawn()
     {
-       
+        gold = Random.Range(20, 100);
         rand_item = items[Random.Range(0, items.Count)];
        
         icon.sprite = rand_item.icon;

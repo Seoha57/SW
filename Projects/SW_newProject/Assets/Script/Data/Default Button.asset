@@ -25,7 +25,9 @@ MonoBehaviour:
   type1Icon: {fileID: 21300000, guid: bea23272899afcd49a0f42b8b7bbcca5, type: 3}
   type2Color: {r: 0.23817575, g: 0.8301887, b: 0.23104309, a: 1}
   type2Icon: {fileID: 21300000, guid: 3880892a53b2378468a88ba23ff5b7f8, type: 3}
-  type3Color: {r: 0, g: 0, b: 0, a: 0}
-  type3Icon: {fileID: 0}
+  type3Color: {r: 1, g: 0.60990745, b: 0, a: 1}
+  type3Icon: {fileID: 21300000, guid: 42506cd5ff4fa404bae63055d5847533, type: 3}
   type4Color: {r: 1, g: 0, b: 0, a: 0.92156863}
   type4Icon: {fileID: 21300000, guid: dc64ac2416d020c49b2787e07530ff33, type: 3}
+  type5Color: {r: 1, g: 0.46728808, b: 0, a: 1}
+  type5Icon: {fileID: 21300000, guid: 995dec5d915a41c418e69effd647850c, type: 3}

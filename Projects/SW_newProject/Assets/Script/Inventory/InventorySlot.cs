@@ -13,6 +13,7 @@ public class InventorySlot : MonoBehaviour
     public Item item;
     public CharacterInfo characterinfo;
     public GameObject removeObject;
+    public Image infoIcon;
 
     int ID =0;
 
@@ -27,8 +28,12 @@ public class InventorySlot : MonoBehaviour
         item = newItem;
 
         icon.sprite = item.icon;
-
         icon.enabled = true;
+
+
+        infoIcon.sprite = item.icon;
+        infoIcon.enabled = true;
+
         removeButton.interactable = true;
         removeObject.SetActive(true);
 
@@ -39,12 +44,18 @@ public class InventorySlot : MonoBehaviour
         item = null;
         icon.sprite = null;
         icon.enabled = false;
+
+        infoIcon.sprite = null;
+        infoIcon.enabled = false;
+
         removeButton.interactable = false;
         removeObject.SetActive(false);
     }
     public void OnRemoveButton()
     {
         Inventory.instance.Remove(item);
+        infomation.SetActive(false);
+        InfoUse(false);
     }
 
     public void Click()
@@ -52,9 +63,10 @@ public class InventorySlot : MonoBehaviour
         Debug.Log("Click " + name);
         if(item != null)
         {
+            InfoUse(!isSelected);
             isSelected = (isSelected) ? false : true;
 
-            InfoUse(true);
+           
         }
             
     }
@@ -87,6 +99,9 @@ public class InventorySlot : MonoBehaviour
         }
       
     }
-
+    public void RemoveInfo()
+    {
+        infomation.SetActive(false);
+    }
   
 }
