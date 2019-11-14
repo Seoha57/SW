@@ -55,9 +55,14 @@ public class SoundManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != prevScene)
         {
             currScene = SceneManager.GetActiveScene().name;
-            if (currScene == "Stage1" || currScene == "Stage2")
+            if (currScene == "Stage1")
             {
                 ChangeBGM(1);
+                BGM.volume = 0.5f;
+            }
+            else if(currScene == "Stage2")
+            {
+                ChangeBGM(2);
                 BGM.volume = 0.5f;
             }
             else

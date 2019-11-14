@@ -2817,7 +2817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ba00455274f8c40b49dae5d986169f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  owner: {fileID: 2124438448}
   actionName: SelfRecovery
 --- !u!114 &1571293358
 MonoBehaviour:
@@ -3915,7 +3915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff831b81b6656734db1e529e0bef5417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 0}
+  owner: {fileID: 2124438448}
   actionName: DaggerStrike
 --- !u!114 &2142817592
 MonoBehaviour:

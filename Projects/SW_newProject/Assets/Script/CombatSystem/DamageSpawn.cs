@@ -54,6 +54,7 @@ public class DamageSpawn : MonoBehaviour
             m_text.text = Actions.GetPhysicalDamage().ToString();
             m_text.fontStyle = FontStyle.Normal;
             m_text.color = new Color(0, 0, 0);
+            timer = 0;
         }
     }
 
@@ -65,6 +66,7 @@ public class DamageSpawn : MonoBehaviour
             m_text.text = Actions.GetPhysicalDamage().ToString();
             m_text.fontStyle = FontStyle.Bold;
             m_text.color = new Color(234, 255, 0);
+            timer = 0;
         }
     }
 
@@ -73,9 +75,10 @@ public class DamageSpawn : MonoBehaviour
         if(ownerID == e.ID)
         {
             m_text.gameObject.SetActive(true);
-            m_text.text = Actions.GetPhysicalDamage().ToString();
+            m_text.text = Actions.GetRecoveryValue().ToString();
             m_text.fontStyle = FontStyle.Normal;
             m_text.color = new Color(0, 255, 0);
+            timer = 0;
         }
     }
 }
