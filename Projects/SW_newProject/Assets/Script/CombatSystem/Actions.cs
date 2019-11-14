@@ -27,6 +27,8 @@ public class Actions : MonoBehaviour
     static bool isFirst = true;
     static int enemyDieCount;
 
+    float waitTime = 0;
+
     public GameObject[] player;
     public GameObject[] enemy;
 
@@ -85,6 +87,14 @@ public class Actions : MonoBehaviour
         instance.actionEventDic.TryGetValue("TakePhysicalDamage", out check);
         if (check == null)
             instance.actionEventDic.Add("TakePhysicalDamage", new ActionEvent());
+
+        instance.actionEventDic.TryGetValue("TakePhysicalComboDamage", out check);
+        if (check == null)
+            instance.actionEventDic.Add("TakePhysicalComboDamage", new ActionEvent());
+
+        instance.actionEventDic.TryGetValue("UseSkill", out check);
+        if (check == null)
+            instance.actionEventDic.Add("UseSkill", new ActionEvent());
 
         instance.actionEventDic.TryGetValue("OGCD1_Init", out check);
         if (check == null)
@@ -161,20 +171,22 @@ public class Actions : MonoBehaviour
         }
 
         /*Listen*/
-        ActionEvent hit = new ActionEvent();
-        if (instance.actionEventDic.TryGetValue("EnemyIsDead", out hit))
+        ActionEvent AE = new ActionEvent();
+        if (instance.actionEventDic.TryGetValue("EnemyIsDead", out AE))
         {
-            hit.AddListener(EnemyCheck);
+            AE.AddListener(EnemyCheck);
         }
-        ActionEvent findNewTarget = new ActionEvent();
-        if (instance.actionEventDic.TryGetValue("EnemyIsDead", out hit))
+        if (instance.actionEventDic.TryGetValue("EnemyIsDead", out AE))
         {
-            hit.AddListener(ChangeTarget);
+            AE.AddListener(ChangeTarget);
         }
-        ActionEvent targetChange = new ActionEvent();
-        if (instance.actionEventDic.TryGetValue("TargetIsChanged", out hit))
+        if (instance.actionEventDic.TryGetValue("TargetIsChanged", out AE))
         {
-            hit.AddListener(ShowTarget);
+            AE.AddListener(ShowTarget);
+        }
+        if (instance.actionEventDic.TryGetValue("UseSkill", out AE))
+        {
+            AE.AddListener(WaitTimeWhenUseSkill);
         }
     }
 
@@ -211,13 +223,18 @@ public class Actions : MonoBehaviour
             if (EnemyAttackTimer[i] < 0 && (enemyAlive && playerAlive))
             {
                 instance.TriggerAction("DaggerStrike", enemy[i]);
-                //EnemyAttackTimer[i] = EnemyAttackCooltime[i];
             }
         }
 
         if (GCDTimer < 0 && (enemyAlive && playerAlive))
         {
-            instance.TriggerAction("AutoAttack", player[0]);
+            if (waitTime <= 0)
+            {
+                instance.TriggerAction("AutoAttack", player[0]);
+                waitTime = 0;
+            }
+            else
+                waitTime -= Time.deltaTime;
         }
     }
 
@@ -228,6 +245,7 @@ public class Actions : MonoBehaviour
         {
             if (OGCDTimer[0] <= 0 && (playerAlive && enemyAlive))
             {
+                instance.TriggerActionEvent("UseSkill", e);
                 instance.TriggerActionEvent("TakePhysicalDamage", e);
                 instance.TriggerActionEvent("OGCD1_Init", e);
                 OGCDTimer[0] = OGCD[0];
@@ -274,7 +292,7 @@ public class Actions : MonoBehaviour
             {
                 tempComboCount = 0;
             }
-            instance.TriggerActionEvent("TakePhysicalDamage", e);
+            instance.TriggerActionEvent("TakePhysicalComboDamage", e);
             instance.TriggerActionEvent("GCDInitialize", e);
             GCDTimer = GCD;
         }
@@ -285,6 +303,7 @@ public class Actions : MonoBehaviour
         recoveryValue = 5.0f;
         if (OGCDTimer[1] <= 0 && playerAlive && enemyAlive)
         {
+            instance.TriggerActionEvent("UseSkill", e);
             instance.TriggerActionEvent("SelfHeal", e);
             instance.TriggerActionEvent("OGCD2_Init", e);
             OGCDTimer[1] = OGCD[1];
@@ -293,26 +312,6 @@ public class Actions : MonoBehaviour
 
     void TargetHPCheck(Entity e)
     {
-        //if (e.ID == 0 && !e.target.activeSelf)
-        //{
-        //    enemyAlive = false;
-        //    instance.TriggerActionEvent("EnemyIsDead", e);
-        //}
-        //if (e.ID == 0 && e.gameObject.activeSelf)
-        //{
-        //    playerAlive = true;
-        //    instance.TriggerActionEvent("PlayerIsAlive", e);
-        //}
-        //if (e.ID == 10 && !e.target.activeSelf)
-        //{
-        //    playerAlive = false;
-        //    instance.TriggerActionEvent("PlayerIsDead", e);
-        //}
-        //if (e.ID == 10 && e.gameObject.activeSelf)
-        //{
-        //    enemyAlive = true;
-        //    instance.TriggerActionEvent("EnemyIsAlive", e);
-        //}
         if(e.target.GetComponent<Entity>().ID == 0 && !e.target.activeSelf)
         {
             playerAlive = false;
@@ -348,6 +347,11 @@ public class Actions : MonoBehaviour
                 }
             }
         }
+    }
+
+    void WaitTimeWhenUseSkill(Entity e)
+    {
+        waitTime = 1.0f;
     }
 
     void ShowTarget(Entity e)

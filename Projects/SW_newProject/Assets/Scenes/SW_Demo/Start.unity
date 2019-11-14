@@ -1241,8 +1241,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BGMSound:
   - {fileID: 8300000, guid: 3be965d84d90d42459e642c1290c6a4a, type: 3}
+  - {fileID: 8300000, guid: 021f93349caa4f34dadf32b5524c1334, type: 3}
   BGMName:
   - MainMenu
+  - Dungeon
 --- !u!82 &918230303
 AudioSource:
   m_ObjectHideFlags: 0

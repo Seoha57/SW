@@ -22,6 +22,18 @@ public class HitCheck : MonoBehaviour
         {
             hit.AddListener(Hitted);
         }
+
+        ActionEvent combo = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalComboDamage", out combo))
+        {
+            combo.AddListener(Hitted);
+        }
+
+        ActionEvent heal = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("SelfHeal", out heal))
+        {
+            heal.AddListener(Recovered);
+        }
     }
 
     // Update is called once per frame
@@ -43,6 +55,14 @@ public class HitCheck : MonoBehaviour
         if (ownerID == e.target.GetComponent<Entity>().ID)
         {
             owner.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
+        }
+    }
+
+    void Recovered(Entity e)
+    {
+        if(ownerID == e.ID)
+        {
+            owner.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
         }
     }
 }

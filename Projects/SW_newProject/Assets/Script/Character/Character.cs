@@ -49,6 +49,11 @@ public class Character : Entity
         {
             Physical.AddListener(TakeDamage);
         }
+        ActionEvent combo = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalComboDamage", out combo))
+        {
+            combo.AddListener(TakeDamage);
+        }
         ActionEvent heal = new ActionEvent();
         if (CombatSysMgr.instance.actionEventDic.TryGetValue("SelfHeal", out Physical))
         {

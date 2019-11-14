@@ -18,6 +18,12 @@ public class Entity : MonoBehaviour
         {
             Physical.AddListener(TakeDamage);
         }
+
+        ActionEvent combo = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalComboDamage", out combo))
+        {
+            combo.AddListener(TakeDamage);
+        }
     }
 
     void TakeDamage(Entity e)
