@@ -6,9 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
+    //BGM
     AudioSource BGM;
     public AudioClip[] BGMSound;
     public string[] BGMName;
+
+    //SFX
+    public AudioSource[] soundEffectChannel;
+    public AudioClip[] SampleSounds;
+    public string[] SoundsNames;
+    Dictionary<string, AudioClip> SFXs;
+    const int MAX_NUMBER_OF_CHANNEL = 10;
+    int numberOfChannel;
+    int count = 0;
 
     string prevScene;
     string currScene;
@@ -20,9 +30,7 @@ public class SoundManager : MonoBehaviour
         {
             if(!SM)
             {
-                GameObject obj = new GameObject();
-                obj.hideFlags = HideFlags.HideAndDontSave;
-                SM = obj.AddComponent<SoundManager>() as SoundManager;
+                SM = FindObjectOfType(typeof(SoundManager)) as SoundManager;
             }
             return SM;
         }
@@ -43,11 +51,19 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
+        //BGM
         BGM = GetComponent<AudioSource>();
         BGM.clip = BGMSound[0];
         BGM.volume = 0.1f;
         prevScene = SceneManager.GetActiveScene().name;
         PlayBGM();
+
+        //SFX
+        SFXs = new Dictionary<string, AudioClip>();
+        numberOfChannel = soundEffectChannel.Length;
+        AssignAudioClip(SampleSounds, SoundsNames);
+        for (int i = 0; i < numberOfChannel; i++)
+            soundEffectChannel[i].volume = 1.0f;
     }
 
     private void Update()
@@ -106,5 +122,26 @@ public class SoundManager : MonoBehaviour
         BGM.clip = BGMSound[index];
 
         BGM.Play();
+    }
+    AudioSource FindEmptyChannel()
+    {
+        if (count >= MAX_NUMBER_OF_CHANNEL)
+            count = 0;
+
+        return soundEffectChannel[count++];
+    }
+    void AssignAudioClip(AudioClip[] audios, string[] audiosName)
+    {
+        for (int i = 0; i < audios.Length; i++)
+            SFXs.Add(audiosName[i], audios[i]);
+    }
+    public void PlaySound(string soundName)
+    {
+        AudioClip output;
+        SFXs.TryGetValue(soundName, out output);
+
+        AudioSource audio = FindEmptyChannel();
+        audio.clip = output;
+        audio.Play();
     }
 }
