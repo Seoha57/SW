@@ -1240,7 +1240,7 @@ MonoBehaviour:
   MaxHealth: 0
   Armor: 0
   Mana: 0
-  Damage: 5
+  Damage: 20
   Speed: 0
 --- !u!114 &475704223
 MonoBehaviour:
