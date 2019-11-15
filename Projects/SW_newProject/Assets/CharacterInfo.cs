@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CharacterInfo : MonoBehaviour
 {
-    public Transform equipParant;
+  
+    public User user;
 
     public Text Name;
     public Text Exp;
@@ -27,10 +28,12 @@ public class CharacterInfo : MonoBehaviour
 
     private void Start()
     {
+       
         CM = CharacterManager.instance;
     }
     private void Update()
     {
+        ID = user.SelectedID;
         Name.text = CM.GetCharacter(ID).Name;
         HP.text = CM.GetCharacter(ID).attribute.MaxHealth.ToString();
         Armor.text = CM.GetCharacter(ID).attribute.Armor.ToString();
@@ -42,18 +45,6 @@ public class CharacterInfo : MonoBehaviour
         Exp.text = CM.GetCharacter(ID).XP.ToString();
         Exp_required.text = CM.GetCharacter(ID).XP_required.ToString();
     }
-    public void SelectedCharacter1()
-    {
-        ID = 0;
-    }
-    public void SelectedCharacter2()
-    {
-        ID = 1;
-    }
 
-    public void SelectedCharacter3()
-    {
-        ID = 2;
-    }
 
 }

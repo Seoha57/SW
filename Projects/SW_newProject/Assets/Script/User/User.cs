@@ -9,6 +9,7 @@ public class User : MonoBehaviour
     public float Gold;
     public CharacterManager characterManager;
     public Inventory inventory;
+    public int SelectedID=0;
 
     private void Update()
     {
@@ -74,5 +75,17 @@ public class User : MonoBehaviour
     {
         focus = null;
     }
-  
+    public void SelectCharacter1()
+    {
+        SelectedID = 0;
+    }
+    public void SelectCharacter2()
+    {
+        SelectedID = 1;
+    }
+    public void SelectCharacter3()
+    {
+        SelectedID = 2;
+    }
+
 }
