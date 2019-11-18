@@ -6,27 +6,10 @@ public class AttributeDistribution : MonoBehaviour
 {
     private Attributes point;
     private Attributes a;
-    private Attributes flat;
-
-    public int CON = 0;
-    public int WIS = 0;
-    public int STR = 0;
-    public int DEX = 0;
-    public int INT = 0;
-
-    public int CON_point = 0;
-    public int WIS_point = 0;
-    public int STR_point = 0;
-    public int DEX_point = 0;
-    public int INT_point = 0;
-
-
-
 
     private void Start()
     {
         point = new Attributes();
-        flat = new Attributes();
         a = new Attributes
         {
             MaxHealth = 0.1f,

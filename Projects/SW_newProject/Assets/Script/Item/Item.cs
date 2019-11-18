@@ -19,7 +19,27 @@ public class Item : ScriptableObject
 
     public ItemInfo iteminfo;
 
+    public static Item Copy(Item item)
+    {
+        Item temp = new Item();
 
+        temp.name = item.name;
+        temp.equipSlot = item.equipSlot;
+        temp.rarity = item.rarity;
+        temp.level = item.level;
+        temp.icon = item.icon;
+        temp.isDefaultItem = item.isDefaultItem;
+        temp.MaxHealthModifier = item.MaxHealthModifier;
+        temp.ArmorModifier = item.ArmorModifier;
+        temp.ManaModifier = item.ManaModifier;
+        temp.DamageModifier = item.DamageModifier;
+        temp.SpeedModifier = item.SpeedModifier;
+
+        return temp;
+       
+
+        
+    }
 
     public void Equip(int id)
     {
@@ -46,10 +66,16 @@ public class Item : ScriptableObject
         CharacterManager.instance.GetCharacter(id).UnEquip((int)this.equipSlot);
     }
 
+    public void CraftingEquip()
+    {
+        if(crafting.instance.Equip(this))
+            // Remove it from the inventory
+            RemoveFromInventory();
+    }
     
 
 }
 
 
 public enum EquipmentSlot { Armor, Weapon, Accessorie }
-public enum Rarity { Normal, Arcane, Rare, Legendary, Divine }
+public enum Rarity { Normal, Rare, Epic, Legendary}

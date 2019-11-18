@@ -87,5 +87,30 @@ public class User : MonoBehaviour
     {
         SelectedID = 2;
     }
+    public void CharacterReset()
+    {
 
+        CharacterManager.instance.GetCharacter(SelectedID).RESET_ATTRIBUTE();
+    }
+
+    public void ADD_HP()
+    {
+        CharacterManager.instance.AddMaxHealth(SelectedID, 10);
+    }
+    public void ADD_Mana()
+    {
+        CharacterManager.instance.AddMana(SelectedID, 1);
+    }
+    public void ADD_Damage()
+    {
+        CharacterManager.instance.AddDamage(SelectedID, 1);
+    }
+    public void ADD_Armor()
+    {
+        CharacterManager.instance.AddArmor(SelectedID, 1);
+    }
+    public void ADD_Speed()
+    {
+        CharacterManager.instance.AddSpeed(SelectedID, 1);
+    }
 }

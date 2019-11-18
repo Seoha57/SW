@@ -98,73 +98,7 @@ public class Character : Entity
         RESET_ATTRIBUTE();
     }
 
-    public void OnAddButtonCON()
-    {
-      
-        if (attributePoint <= 0)
-            return;
 
-        AD.CON++;
-        attributePoint--;
-
-        CharacterManager.instance.GetCharacter(ID).attributePoint = attributePoint;
-        CharacterManager.instance.AddMaxHealth(ID, FlatPoint);
-        Debug.Log("Added Con " + AD.CON);
-
-        CharacterManager.instance.GetCharacter(ID).AD.CON = AD.CON;
-    }
-
-    public void OnAddButtonWIS()
-    {
-        if (attributePoint <= 0)
-            return;
-
-
-        AD.WIS++;
-        attributePoint--;
-        Debug.Log("Added WIS " + AD.WIS);
-        CharacterManager.instance.GetCharacter(ID).attributePoint = attributePoint;
-        CharacterManager.instance.AddMana(ID, FlatPoint);
-        CharacterManager.instance.GetCharacter(ID).AD.WIS = AD.WIS;
-    }
-
-    public void OnAddButtonSTR()
-    {
-        if (attributePoint <= 0)
-            return;
-
-        AD.STR++;
-        attributePoint--;
-        Debug.Log("Added STR " + AD.STR);
-        CharacterManager.instance.GetCharacter(ID).attributePoint = attributePoint;
-        CharacterManager.instance.AddDamage(ID, FlatPoint);
-        CharacterManager.instance.GetCharacter(ID).AD.STR = AD.STR;
-    }
-
-    public void OnAddButtonDEX()
-    {
-        if (attributePoint <= 0)
-            return;
-
-        AD.DEX++;
-        attributePoint--;
-        Debug.Log("Added DEX " + AD.DEX);
-        CharacterManager.instance.GetCharacter(ID).attributePoint = attributePoint;
-        CharacterManager.instance.AddSpeed(ID, FlatPoint);
-        CharacterManager.instance.GetCharacter(ID).AD.DEX = AD.DEX;
-    }
-    public void OnAddButtonINT()
-    {
-        if (attributePoint <= 0)
-            return;
-
-        AD.INT++;
-        attributePoint--;
-        CharacterManager.instance.GetCharacter(ID).attributePoint = attributePoint;
-        Debug.Log("Added INT " + AD.INT);
-        CharacterManager.instance.AddArmor(ID, FlatPoint);
-        CharacterManager.instance.GetCharacter(ID).AD.INT = AD.INT;
-    }
     public void RESET_ATTRIBUTE()
     {
         CharacterManager.instance.SetAttributePoint(ID, 0);
@@ -297,19 +231,19 @@ public class Character : Entity
 
     private void Setting()
     {
-        attributePoint = CM.GetCharacter(ID).attributePoint;
-        Level = CM.GetLevel(ID);
-        XP = CM.GetExp(ID);
-        XP_required = CM.GetExpRequried(ID);
-        HP = CM.GetMaxHealth(ID);
+        attributePoint = CharacterManager.instance.GetCharacter(ID).attributePoint;
+        Level = CharacterManager.instance.GetLevel(ID);
+        XP = CharacterManager.instance.GetExp(ID);
+        XP_required = CharacterManager.instance.GetExpRequried(ID);
+        HP = CharacterManager.instance.GetMaxHealth(ID);
 
-        attribute.MaxHealth = CM.GetMaxHealth(ID);
-        attribute.Armor = CM.GetArmor(ID);
-        attribute.Mana = CM.GetMana(ID);
-        attribute.Damage = CM.GetDamage(ID);
-        attribute.Speed = CM.GetSpeed(ID);
+        attribute.MaxHealth = CharacterManager.instance.GetMaxHealth(ID);
+        attribute.Armor = CharacterManager.instance.GetArmor(ID);
+        attribute.Mana = CharacterManager.instance.GetMana(ID);
+        attribute.Damage = CharacterManager.instance.GetDamage(ID);
+        attribute.Speed = CharacterManager.instance.GetSpeed(ID);
 
-        items = CM.GetCharacter(ID).items;
+        items = CharacterManager.instance.GetCharacter(ID).items;
 
     }
 }

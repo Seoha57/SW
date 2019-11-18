@@ -3,39 +3,33 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
+    public User user;
     public Transform itemsParent;
     public GameObject inventoryUI;
 
-    public Transform equipParent1;
-    public Transform equipParent2;
+    public Transform equipParent;
     public GameObject equipUI;
-
-    public CharacterInfo characterinfo;
 
     Inventory inventory;
     EquipmentManager equipmentManager;
     CharacterManager CM;
-    Character char1;
-    Character char2;
 
     InventorySlot[] slots;
-    EquipSlot[] equipSlots1;
-    EquipSlot[] equipSlots2;
+    EquipSlot[] equipSlots;
 
     int ID;
-    //InventorySlot[] equipSlots;
+
+    public int index = -1;
+
     private void Start()
     {
         inventory = Inventory.instance;
-        //inventory.onItemChangedCallback += UpdateUI;
         CM = CharacterManager.instance;
         equipmentManager = EquipmentManager.instance;
-        //char1 = CharacterManager.GetCharacter(0);
-        //char2 = CharacterManager.GetCharacter(1);
-        slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-        equipSlots1 = equipParent1.GetComponentsInChildren<EquipSlot>();
-        equipSlots2 = equipParent2.GetComponentsInChildren<EquipSlot>();
-        // DontDestroyOnLoad(this);
+        if(itemsParent !=null)
+            slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+        if(equipParent!=null)
+            equipSlots = equipParent.GetComponentsInChildren<EquipSlot>();
     }
 
     private void Update()
@@ -48,54 +42,58 @@ public class InventoryUI : MonoBehaviour
         {
             equipUI.SetActive(!equipUI.activeSelf);
         }
-
-        UpdateInventoryUI();
-        UpdateEquipUI();
+        if (itemsParent != null)
+            UpdateInventoryUI();
+        if (equipParent != null)
+            UpdateEquipUI();
     }
     public void UpdateInventoryUI()
     {
+
+
         for (int i = 0; i < slots.Length; i++)
         {
             if(i<inventory.items.Count)
             {
                 slots[i].AddItem(inventory.items[i]);
 
+                if (slots[i].isSelected)
+                {
+                    if(i == index)
+                    {
+                        index = -1;
+                        continue;
+                    }
+                    index = i;
+                    slots[i].isSelected = false;
+                }
+
+                if (i == index)
+                    slots[i].InfoUse(true);
+                else
+                    slots[i].InfoUse(false);
             }
             else
             {
                 slots[i].ClearSlot();
             }
         }
+
     }
 
     public void UpdateEquipUI()
     {
 
-        ID = characterinfo.ID;
-        for (int i = 0; i < equipSlots1.Length; i++)
+        ID = user.SelectedID;
+        for (int i = 0; i < equipSlots.Length; i++)
         {
 
-            equipSlots1[i].id = ID;
+            equipSlots[i].id = ID;
             if (CM.GetCharacter(ID).items[i] != null)
-                equipSlots1[i].AddItem(CM.GetCharacter(ID).items[i]);
+                equipSlots[i].AddItem(CM.GetCharacter(ID).items[i]);
             else
-                equipSlots1[i].ClearSlot();
+                equipSlots[i].ClearSlot();
 
-
-            //if (equipmentManager.currentEquipment[i] != null) 
-            //    equipSlots1[i].AddItem(equipmentManager.currentEquipment[i]); 
-            //else
-            //    equipSlots1[i].ClearSlot();
-
-        }
-
-        for (int j = 0; j < equipSlots2.Length; j++)
-        {
-            equipSlots2[j].id = 1;
-            if (CM.GetCharacter(1).items[j] != null)
-                equipSlots2[j].AddItem(CM.GetCharacter(1).items[j]);
-            else
-                equipSlots2[j].ClearSlot();
         }
 
     }

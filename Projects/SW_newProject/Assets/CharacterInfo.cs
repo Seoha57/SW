@@ -17,18 +17,13 @@ public class CharacterInfo : MonoBehaviour
     public Text Speed;
 
     public Text level;
-
-
     public int ID = 0;
-    Character m_char;
-    EquipSlot[] equipSlots;
 
     CharacterManager CM;
 
 
     private void Start()
     {
-       
         CM = CharacterManager.instance;
     }
     private void Update()

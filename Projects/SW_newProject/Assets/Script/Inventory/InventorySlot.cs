@@ -14,10 +14,14 @@ public class InventorySlot : MonoBehaviour
     public CharacterInfo characterinfo;
     public GameObject removeObject;
     public Image infoIcon;
+    public Image ButtonColor;
+    public FlexibleUIButton flexibleButton;
+
+    public InventoryUI inventoryUI;
 
     int ID =0;
 
-    void InfoUse(bool _bool)
+    public void InfoUse(bool _bool)
     {
         infoObject.SetActive(_bool);
         useObject.SetActive(_bool);
@@ -37,6 +41,25 @@ public class InventorySlot : MonoBehaviour
         removeButton.interactable = true;
         removeObject.SetActive(true);
 
+ 
+        switch (item.rarity)
+        {
+            case Rarity.Normal:
+                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
+                break;
+            case Rarity.Rare:
+                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type2;
+                break;
+            case Rarity.Epic:
+                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type3;
+                break;
+            case Rarity.Legendary:
+                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type4;
+                break;
+            default:
+                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
+                break;
+        }
 
     }
     public void ClearSlot()
@@ -50,6 +73,9 @@ public class InventorySlot : MonoBehaviour
 
         removeButton.interactable = false;
         removeObject.SetActive(false);
+
+        flexibleButton.buttontype = FlexibleUIButton.ButtonType.Defalut;
+        InfoUse(false);
     }
     public void OnRemoveButton()
     {
@@ -63,7 +89,7 @@ public class InventorySlot : MonoBehaviour
         Debug.Log("Click " + name);
         if(item != null)
         {
-            InfoUse(!isSelected);
+            //InfoUse(!isSelected);
             isSelected = (isSelected) ? false : true;
 
            
@@ -71,14 +97,6 @@ public class InventorySlot : MonoBehaviour
             
     }
 
-    public void UseItem()
-    {
-        if (item != null)
-        {
-            item.Equip(0);
-            //Inventory.instance.Remove(item);               
-        }
-    }
 
     public void Info()
     {
@@ -96,12 +114,25 @@ public class InventorySlot : MonoBehaviour
             item.Equip(ID);
             InfoUse(false);
             infomation.SetActive(false);
+
+            inventoryUI.index = -1;
         }
       
     }
     public void RemoveInfo()
     {
         infomation.SetActive(false);
+    }
+
+    public void Crafting()
+    {
+        if(item != null)
+        {
+            item.CraftingEquip();
+            //InfoUse(false);
+            infomation.SetActive(false);
+            inventoryUI.index = -1;
+        }
     }
   
 }

@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-
-public class EquipSlot : MonoBehaviour
+public class CraftingSlot : MonoBehaviour
 {
     public Image icon;
     public Button removeButton;
@@ -15,10 +14,9 @@ public class EquipSlot : MonoBehaviour
     public int id = 0;
 
 
-    public void AddItem(Item newEquip)
+    public void AddItem(Item newitem)
     {
-        item = newEquip;
-        index = (int)newEquip.equipSlot;
+        item = newitem;
         icon.sprite = item.icon;
         icon.enabled = true;
         removeButton.interactable = true;
@@ -55,21 +53,13 @@ public class EquipSlot : MonoBehaviour
     }
     public void OnRemoveButton()
     {
-
-        item.Unequip(id);
+        Inventory.instance.Add(item);
+        crafting.instance.UnEquip(item);
         ClearSlot();
 
+
     }
 
-    public void UseItem()
-    {
- 
-        if (item != null)
-        {
-            item.Equip(0);
-            //Inventory.instance.Remove(item);               
-        }
-    }
     public void Click()
     {
         isSelected = true;
