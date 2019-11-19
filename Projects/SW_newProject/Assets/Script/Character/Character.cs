@@ -32,7 +32,7 @@ public class Character : Entity
     private float init_Speed = 10f;
 
     CharacterManager CM;
-
+    public string[] Skills;
     private void Start()
     {
         
@@ -244,6 +244,6 @@ public class Character : Entity
         attribute.Speed = CharacterManager.instance.GetSpeed(ID);
 
         items = CharacterManager.instance.GetCharacter(ID).items;
-
+        Skills = CharacterManager.instance.GetCharacter(ID).Skills;
     }
 }

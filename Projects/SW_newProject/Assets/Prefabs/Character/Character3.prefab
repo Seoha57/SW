@@ -123,6 +123,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Skills:
+  - Fireball
+  - ThunderBolt
+  - SelfHeal
 --- !u!114 &5955494931754937549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,16 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ecef8711f0b27748b5d87e7a3fdab27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CON: 0
-  WIS: 0
-  STR: 0
-  DEX: 0
-  INT: 0
-  CON_point: 0
-  WIS_point: 0
-  STR_point: 0
-  DEX_point: 0
-  INT_point: 0
 --- !u!114 &2077652879324677737
 MonoBehaviour:
   m_ObjectHideFlags: 0
