@@ -113,6 +113,7 @@ MonoBehaviour:
   attribute: {fileID: -8633419174563931729}
   target: {fileID: 0}
   AD: {fileID: 5070079424179827466}
+  user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
   Name: Warrior
   attributePoint: 5
   Level: 1

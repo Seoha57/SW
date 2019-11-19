@@ -530,7 +530,6 @@ GameObject:
   - component: {fileID: 936096315}
   - component: {fileID: 936096314}
   - component: {fileID: 936096321}
-  - component: {fileID: 936096322}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -555,6 +554,7 @@ MonoBehaviour:
   attribute: {fileID: 936096315}
   target: {fileID: 1179274800}
   AD: {fileID: 936096316}
+  user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
   Name: 
   attributePoint: 0
   Level: 1
@@ -678,20 +678,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 936096313}
---- !u!114 &936096322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936096313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3bfd5166d2c78a40a345ac6a58f36fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
-  character: {fileID: 936096314}
 --- !u!1 &954842456
 GameObject:
   m_ObjectHideFlags: 0

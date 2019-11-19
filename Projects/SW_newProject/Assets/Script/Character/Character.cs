@@ -7,6 +7,8 @@ using UnityEngine;
 public class Character : Entity
 {
     public AttributeDistribution AD;
+    public User user;
+
 
     [Header("Name")]
     public string Name;
@@ -40,6 +42,7 @@ public class Character : Entity
         //items = new Item[numSlots];
         //CharacterManager.GetCharacter(ID).items = new Item[numSlots];
         CM = CharacterManager.instance;
+        ID = user.SelectedID;
         Setting();
         if (AD == null)
             AD = transform.GetComponent<AttributeDistribution>();
