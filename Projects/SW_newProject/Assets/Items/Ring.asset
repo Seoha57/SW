@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2ac344bd23f4cb48970ae8ea7f67345, type: 3}
-  m_Name: Armor
+  m_Name: Ring
   m_EditorClassIdentifier: 
-  name: BodyShield
-  equipSlot: 0
-  rarity: 1
+  name: Ring
+  equipSlot: 2
+  rarity: 0
   level: 1
-  icon: {fileID: 21300000, guid: 7898e2ee5a86b80429429f0417f66948, type: 3}
+  icon: {fileID: 21300000, guid: a668de40c06b81b41a1bdfa133bdb9a6, type: 3}
   isDefaultItem: 0
   MaxHealthModifier: 0
-  ArmorModifier: 5
-  ManaModifier: 0
-  DamageModifier: 0
+  ArmorModifier: 0
+  ManaModifier: 2
+  DamageModifier: 1
   SpeedModifier: 0
   iteminfo: {fileID: 0}

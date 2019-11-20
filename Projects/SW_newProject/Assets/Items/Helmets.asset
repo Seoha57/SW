@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2ac344bd23f4cb48970ae8ea7f67345, type: 3}
-  m_Name: Accessorie
+  m_Name: Helmets
   m_EditorClassIdentifier: 
-  name: Accessorie
-  equipSlot: 2
-  rarity: 3
+  name: Helmet
+  equipSlot: 0
+  rarity: 0
   level: 1
-  icon: {fileID: 21300000, guid: 0708b81f5efb39849a0c3092c195d90e, type: 3}
+  icon: {fileID: 21300000, guid: d645e4140ee4f3a4e9b0d1cfc9d98ed3, type: 3}
   isDefaultItem: 0
-  MaxHealthModifier: 0
-  ArmorModifier: 0
+  MaxHealthModifier: 3
+  ArmorModifier: 1
   ManaModifier: 0
   DamageModifier: 0
-  SpeedModifier: 5
+  SpeedModifier: 0
   iteminfo: {fileID: 0}

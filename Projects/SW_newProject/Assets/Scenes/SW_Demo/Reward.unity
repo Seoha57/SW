@@ -1986,6 +1986,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b215aacd49015164ab8d228cb58a68ac, type: 2}
   - {fileID: 11400000, guid: 8e86fc66ca8cf5e4b84ee0eb4845c4af, type: 2}
   - {fileID: 11400000, guid: eb52efb5a93061a479cb5046c0129c96, type: 2}
+  - {fileID: 11400000, guid: 85122c378646ae94b84a59eab835a762, type: 2}
+  - {fileID: 11400000, guid: f5d23f40d0e9f1d48a5cef48fac2c96e, type: 2}
+  - {fileID: 11400000, guid: b228015cea278a24fbd5ae29f4de294f, type: 2}
+  - {fileID: 11400000, guid: 55b7c1291d4ee65489f3a1cc34949cbe, type: 2}
+  - {fileID: 11400000, guid: 607ecacbd239fc947b2859a424a10d10, type: 2}
+  - {fileID: 11400000, guid: ca3429e0c539aa1469cf12015be8956c, type: 2}
   user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
   Xp: 100
   gold: 0
@@ -2544,7 +2550,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.8745098}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.8235294}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
