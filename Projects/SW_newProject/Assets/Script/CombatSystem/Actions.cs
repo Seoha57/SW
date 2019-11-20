@@ -275,7 +275,7 @@ public class Actions : MonoBehaviour
     void DealBasicDamage(Entity e)
     {
         damage = actionHelper.DamageMod(e, AttackType.PHYSICAL);
-        if (e.ID == 0 && !comboAttacking)
+        if (e.ID < 10 && !comboAttacking)
         {
             if (OGCDTimer[0] <= 0 && (playerAlive && enemyAlive))
             {
