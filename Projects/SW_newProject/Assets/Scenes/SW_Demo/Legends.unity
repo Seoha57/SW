@@ -3177,6 +3177,7 @@ MonoBehaviour:
   attribute: {fileID: 857505277}
   target: {fileID: 0}
   AD: {fileID: 857505278}
+  user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
   Name: 
   attributePoint: 0
   Level: 1
@@ -3184,6 +3185,7 @@ MonoBehaviour:
   XP_required: 100
   FlatPoint: 0
   items: []
+  Skills: []
 --- !u!114 &857505277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4503,6 +4505,7 @@ MonoBehaviour:
   attribute: {fileID: 1362934117}
   target: {fileID: 0}
   AD: {fileID: 1362934118}
+  user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
   Name: 
   attributePoint: 0
   Level: 1
@@ -4510,6 +4513,7 @@ MonoBehaviour:
   XP_required: 100
   FlatPoint: 0
   items: []
+  Skills: []
 --- !u!114 &1362934117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4860,6 +4864,7 @@ MonoBehaviour:
   attribute: {fileID: 1463940049}
   target: {fileID: 0}
   AD: {fileID: 1463940050}
+  user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
   Name: 
   attributePoint: 0
   Level: 1
@@ -4867,6 +4872,7 @@ MonoBehaviour:
   XP_required: 100
   FlatPoint: 0
   items: []
+  Skills: []
 --- !u!114 &1463940049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5647,6 +5653,7 @@ MonoBehaviour:
   attribute: {fileID: 1644421760}
   target: {fileID: 0}
   AD: {fileID: 1644421761}
+  user: {fileID: 0}
   Name: 
   attributePoint: 0
   Level: 1
@@ -5654,6 +5661,7 @@ MonoBehaviour:
   XP_required: 100
   FlatPoint: 0
   items: []
+  Skills: []
 --- !u!114 &1644421760
 MonoBehaviour:
   m_ObjectHideFlags: 0

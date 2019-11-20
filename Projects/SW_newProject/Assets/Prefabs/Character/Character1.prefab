@@ -127,7 +127,7 @@ MonoBehaviour:
   Skills:
   - Attack
   - ComboAttack
-  - SelfHeal
+  - SelfRecovery
 --- !u!114 &5070079424179827467
 MonoBehaviour:
   m_ObjectHideFlags: 0

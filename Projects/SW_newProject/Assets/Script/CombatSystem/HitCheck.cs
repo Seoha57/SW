@@ -18,15 +18,9 @@ public class HitCheck : MonoBehaviour
         temp = m_material.color;
 
         ActionEvent hit = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalDamage", out hit))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakeDamage", out hit))
         {
             hit.AddListener(Hitted);
-        }
-
-        ActionEvent combo = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalComboDamage", out combo))
-        {
-            combo.AddListener(Hitted);
         }
 
         ActionEvent heal = new ActionEvent();

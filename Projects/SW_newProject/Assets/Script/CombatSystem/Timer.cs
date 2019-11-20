@@ -32,6 +32,13 @@ public class Timer : MonoBehaviour
                 timeReset.AddListener(TimerReset);
             }
         }
+        else if (SkillNum == 2)
+        {
+            if (CombatSysMgr.instance.actionEventDic.TryGetValue("OGCD3_Init", out timeReset))
+            {
+                timeReset.AddListener(TimerReset);
+            }
+        }
 
         ActionEvent endGame = new ActionEvent();
         if (CombatSysMgr.instance.actionEventDic.TryGetValue("PlayerIsDead", out timeReset))

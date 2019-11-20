@@ -14,15 +14,9 @@ public class Entity : MonoBehaviour
     void Start()
     {
         ActionEvent Physical = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakeDamage", out Physical))
         {
             Physical.AddListener(TakeDamage);
-        }
-
-        ActionEvent combo = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalComboDamage", out combo))
-        {
-            combo.AddListener(TakeDamage);
         }
     }
 

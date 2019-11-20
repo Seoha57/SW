@@ -37,10 +37,6 @@ public class Character : Entity
     public string[] Skills;
     private void Start()
     {
-        
-        //int numSlots = System.Enum.GetNames(typeof(EquipmentSlot)).Length;
-        //items = new Item[numSlots];
-        //CharacterManager.GetCharacter(ID).items = new Item[numSlots];
         CM = CharacterManager.instance;
         ID = user.SelectedID;
         Setting();
@@ -48,26 +44,25 @@ public class Character : Entity
             AD = transform.GetComponent<AttributeDistribution>();
 
         ActionEvent Physical = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalDamage", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakeDamage", out Physical))
         {
             Physical.AddListener(TakeDamage);
         }
-        ActionEvent combo = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakePhysicalComboDamage", out combo))
-        {
-            combo.AddListener(TakeDamage);
-        }
         ActionEvent heal = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("SelfHeal", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("SelfHeal", out heal))
         {
-            Physical.AddListener(SelfRecovery);
+            heal.AddListener(SelfRecovery);
         }
         ActionEvent reset = new ActionEvent();
-        if (CombatSysMgr.instance.actionEventDic.TryGetValue("PlayerIsDead", out Physical))
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("PlayerIsDead", out reset))
         {
-            Physical.AddListener(ResetCharacter);
+            reset.AddListener(ResetCharacter);
         }
-
+        ActionEvent useSkill = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("UseSkill", out useSkill))
+        {
+            //useSkill.AddListener(ResetCharacter);
+        }
     }
     private void Update()
     {
@@ -120,7 +115,6 @@ public class Character : Entity
         }
 
         Setting();
-
     }
 
     public void Equip(Item newitem)

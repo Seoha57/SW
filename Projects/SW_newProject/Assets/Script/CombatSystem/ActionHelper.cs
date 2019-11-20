@@ -37,11 +37,11 @@ public class ActionHelper : MonoBehaviour
     //    return damage;
     //}
 
-    public float GCDMod(Entity e, float GCD)
+    public float CoolTimeMod(Entity e, float coolTime)
     {
-        float mod_GCD = GCD;
+        float mod_GCD = coolTime;
 
-        mod_GCD -= GCD * (e.attribute.Speed / 100.0f);
+        mod_GCD -= coolTime * (e.attribute.Speed / 100.0f);
 
         return mod_GCD;
     }
