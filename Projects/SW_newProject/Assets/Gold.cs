@@ -8,7 +8,7 @@ public class Gold : MonoBehaviour
     public User user;
     public Text gold;
 
-    private void Start()
+    private void Update()
     {
         gold.text = user.Gold.ToString();
     }

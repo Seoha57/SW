@@ -7,8 +7,8 @@ public class Gems : MonoBehaviour
     public User user;
     public Text gems;
 
-    private void Start()
+    private void Update()
     {
-        //gems.text = user.Gold.ToString();
+        gems.text = user.Gem.ToString();
     }
 }

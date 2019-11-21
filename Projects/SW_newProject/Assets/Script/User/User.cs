@@ -7,9 +7,11 @@ public class User : MonoBehaviour
     public Interactable focus;
 
     public float Gold;
+    public float Gem;
     public CharacterManager characterManager;
     public Inventory inventory;
     public int SelectedID=0;
+    
 
     private void Update()
     {
