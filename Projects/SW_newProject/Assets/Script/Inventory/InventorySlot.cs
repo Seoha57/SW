@@ -13,12 +13,13 @@ public class InventorySlot : MonoBehaviour
     public Item item;
     public CharacterInfo characterinfo;
     public GameObject removeObject;
-    public Image infoIcon;
+
     public Image ButtonColor;
     public FlexibleUIButton flexibleButton;
 
     public InventoryUI inventoryUI;
 
+    bool onclick = false;
     int ID =0;
 
     public void InfoUse(bool _bool)
@@ -33,10 +34,6 @@ public class InventorySlot : MonoBehaviour
 
         icon.sprite = item.icon;
         icon.enabled = true;
-
-
-        infoIcon.sprite = item.icon;
-        infoIcon.enabled = true;
 
         removeButton.interactable = true;
         removeObject.SetActive(true);
@@ -68,9 +65,6 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = null;
         icon.enabled = false;
 
-        infoIcon.sprite = null;
-        infoIcon.enabled = false;
-
         removeButton.interactable = false;
         removeObject.SetActive(false);
 
@@ -92,12 +86,10 @@ public class InventorySlot : MonoBehaviour
             //InfoUse(!isSelected);
             isSelected = (isSelected) ? false : true;
 
-           
+            InfoUse(!onclick);
         }
             
     }
-
-
     public void Info()
     {
         if (item != null)
@@ -118,10 +110,6 @@ public class InventorySlot : MonoBehaviour
             inventoryUI.index = -1;
         }
       
-    }
-    public void RemoveInfo()
-    {
-        infomation.SetActive(false);
     }
 
     public void Crafting()

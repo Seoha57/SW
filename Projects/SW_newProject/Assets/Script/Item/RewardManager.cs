@@ -34,7 +34,7 @@ public class RewardManager : MonoBehaviour
         }
 
     }
-       
+    
 
     public Item GetRandomItem()
     {
@@ -55,24 +55,29 @@ public class RewardManager : MonoBehaviour
         {
             rand_item.rarity = Rarity.Legendary;
             flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type4;
+
+
+
         }
         else if (rand > legendary_prob && rand < epic_prob)
         {
             rand_item.rarity = Rarity.Epic;
             flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type3;
+
         }
         else if (rand > epic_prob && rand < rare_prob)
         {
             rand_item.rarity = Rarity.Rare;
             flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type2;
+
         }
         else
         {
             rand_item.rarity = Rarity.Normal;
             flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
         }
-           
 
+        rand_item.Adapting();
         Debug.Log("Rarity : "+rand_item.rarity);
     }
     public void RandomSpawn()
@@ -82,6 +87,8 @@ public class RewardManager : MonoBehaviour
         rand_item = Item.Copy(items[Random.Range(0, items.Count)]);
         Prob();
         
+
+
         icon.sprite = rand_item.icon;
         Debug.Log("Random Item Spawn " + rand_item.name);
     }

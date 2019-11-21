@@ -147,7 +147,7 @@ public class crafting : MonoBehaviour
     {
         ResultItem = Item.Copy(items[0]);
         ResultItem.rarity = ResultRarity;
-
+        ResultItem.Upgrade();
         Inventory.instance.Add(ResultItem);
         ClearResult();
         items.Clear();

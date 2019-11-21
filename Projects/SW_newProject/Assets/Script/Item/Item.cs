@@ -17,6 +17,10 @@ public class Item : ScriptableObject
     public float DamageModifier;
     public float SpeedModifier;
 
+    public int RarePoint = 2;
+    public int EpicPoint = 3;
+    public int LegendPoint = 4;
+
     public ItemInfo iteminfo;
 
     public static Item Copy(Item item)
@@ -72,8 +76,61 @@ public class Item : ScriptableObject
             // Remove it from the inventory
             RemoveFromInventory();
     }
-    
 
+    void Modifier(int val)
+    {
+        if (MaxHealthModifier != 0)
+            MaxHealthModifier += val;
+        if (ManaModifier != 0)
+            ManaModifier += val;
+        if (ArmorModifier != 0)
+            ArmorModifier += val;
+        if (DamageModifier != 0)
+            DamageModifier += val;
+        if (SpeedModifier != 0)
+            SpeedModifier += val;
+    }
+
+    public void Adapting()
+    {
+        switch (rarity)
+        {
+            case Rarity.Normal:
+                break;
+            case Rarity.Rare:
+                Modifier(2);
+                break;
+            case Rarity.Epic:
+                Modifier(5);
+                break;
+            case Rarity.Legendary:
+                Modifier(9);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public void Upgrade()
+    {
+        switch (rarity)
+        {
+            case Rarity.Normal:
+                break;
+            case Rarity.Rare:
+                Modifier(RarePoint);
+                break;
+            case Rarity.Epic:
+                Modifier(EpicPoint);
+                break;
+            case Rarity.Legendary:
+                Modifier(LegendPoint);
+                break;
+            default:
+                break;
+        }
+    }
 }
 
 

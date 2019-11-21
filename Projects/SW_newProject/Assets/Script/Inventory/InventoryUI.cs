@@ -14,7 +14,7 @@ public class InventoryUI : MonoBehaviour
     EquipmentManager equipmentManager;
     CharacterManager CM;
 
-    InventorySlot[] slots;
+    public InventorySlot[] slots;
     EquipSlot[] equipSlots;
 
     int ID;
@@ -68,9 +68,7 @@ public class InventoryUI : MonoBehaviour
                     slots[i].isSelected = false;
                 }
 
-                if (i == index)
-                    slots[i].InfoUse(true);
-                else
+                if (i != index)
                     slots[i].InfoUse(false);
             }
             else
