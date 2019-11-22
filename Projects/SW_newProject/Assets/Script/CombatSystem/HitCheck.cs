@@ -9,11 +9,11 @@ public class HitCheck : MonoBehaviour
     private Color temp;
     float timer = 0;
     int ownerID;
+    bool first = true;
 
     // Start is called before the first frame update
     void Start()
     {
-        ownerID = owner.GetComponent<Entity>().ID;
         m_material = owner.GetComponent<Renderer>().material;
         temp = m_material.color;
 
@@ -29,10 +29,19 @@ public class HitCheck : MonoBehaviour
             heal.AddListener(Recovered);
         }
     }
+    private void Init()
+    {
+        ownerID = owner.GetComponent<Entity>().ID;
+    }
 
     // Update is called once per frame
     void Update()
     {
+        if(first)
+        {
+            ownerID = owner.GetComponent<Entity>().ID;
+            first = false;
+        }
         if (owner.GetComponent<Renderer>().material.color != temp)
         {
             timer += Time.deltaTime;

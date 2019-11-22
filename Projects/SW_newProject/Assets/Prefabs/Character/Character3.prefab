@@ -126,8 +126,8 @@ MonoBehaviour:
   - {fileID: 0}
   Skills:
   - Fireball
-  - ThunderBolt
-  - SelfRecovery
+  - Thunder Bolt
+  - Self Recovery
 --- !u!114 &5955494931754937549
 MonoBehaviour:
   m_ObjectHideFlags: 0

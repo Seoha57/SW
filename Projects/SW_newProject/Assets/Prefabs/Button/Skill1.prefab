@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   actionName: 
+  m_text: {fileID: 1574544965925448045}
   skill_no: 0
 --- !u!1 &1574544965197731534
 GameObject:
@@ -180,7 +181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1574544965197731535
 RectTransform:
   m_ObjectHideFlags: 0
@@ -254,7 +255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1574544965925448044
 RectTransform:
   m_ObjectHideFlags: 0

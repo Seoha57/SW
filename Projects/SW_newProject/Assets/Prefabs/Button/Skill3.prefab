@@ -162,6 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
   actionName: 
+  m_text: {fileID: 2002842641910461097}
   skill_no: 2
 --- !u!1 &2002842641360008471
 GameObject:
@@ -176,7 +177,7 @@ GameObject:
   - component: {fileID: 2002842641360008468}
   - component: {fileID: 2002842641360008469}
   m_Layer: 5
-  m_Name: Skill2Cool
+  m_Name: Skill3Cool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,7 +269,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2002842641544799709
 RectTransform:
   m_ObjectHideFlags: 0
@@ -342,7 +343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2002842641910461098
 RectTransform:
   m_ObjectHideFlags: 0

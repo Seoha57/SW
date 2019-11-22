@@ -157,14 +157,14 @@ public class Actions : MonoBehaviour
             instance.actionDic.Add("Attack", holder);
         }
         Action arrowShot = null;
-        instance.actionDic.TryGetValue("ArrowShot", out arrowShot);
+        instance.actionDic.TryGetValue("Arrow Shot", out arrowShot);
         if (arrowShot == null)
         {
             arrowShot = new Action();
             arrowShot.AEfList = new List<ActionEffect>();
             arrowShot.AEfList.Add(DealBasicDamage);
             arrowShot.AEfList.Add(TargetHPCheck);
-            instance.actionDic.Add("ArrowShot", arrowShot);
+            instance.actionDic.Add("Arrow Shot", arrowShot);
         }
         Action fireball = null;
         instance.actionDic.TryGetValue("Fireball", out fireball);
@@ -179,46 +179,46 @@ public class Actions : MonoBehaviour
 
         /*Second Skills*/
         Action comboAttack = null;
-        instance.actionDic.TryGetValue("ComboAttack", out comboAttack);
+        instance.actionDic.TryGetValue("Combo Attack", out comboAttack);
         if (comboAttack == null)
         {
             comboAttack = new Action();
             comboAttack.AEfList = new List<ActionEffect>();
             comboAttack.AEfList.Add(DealComboDamage);
             comboAttack.AEfList.Add(TargetHPCheck);
-            instance.actionDic.Add("ComboAttack", comboAttack);
+            instance.actionDic.Add("Combo Attack", comboAttack);
         }
         Action multiShot = null;
-        instance.actionDic.TryGetValue("MultiShot", out multiShot);
+        instance.actionDic.TryGetValue("Multi Shot", out multiShot);
         if (multiShot == null)
         {
             multiShot = new Action();
             multiShot.AEfList = new List<ActionEffect>();
             multiShot.AEfList.Add(DealMultipleShot);
             multiShot.AEfList.Add(TargetHPCheck);
-            instance.actionDic.Add("MultiShot", multiShot);
+            instance.actionDic.Add("Multi Shot", multiShot);
         }
         Action thunderBolt = null;
-        instance.actionDic.TryGetValue("ThunderBolt", out thunderBolt);
+        instance.actionDic.TryGetValue("Thunder Bolt", out thunderBolt);
         if (thunderBolt == null)
         {
             thunderBolt = new Action();
             thunderBolt.AEfList = new List<ActionEffect>();
             thunderBolt.AEfList.Add(DealThunderBolt);
             thunderBolt.AEfList.Add(TargetHPCheck);
-            instance.actionDic.Add("ThunderBolt", thunderBolt);
+            instance.actionDic.Add("Thunder Bolt", thunderBolt);
         }
 
         /*Third Skill*/
         Action recovery = null;
-        instance.actionDic.TryGetValue("SelfRecovery", out recovery);
+        instance.actionDic.TryGetValue("Self Recovery", out recovery);
         if (recovery == null)
         {
             recovery = new Action();
             recovery.AEfList = new List<ActionEffect>();
             recovery.AEfList.Add(SelfHeal);
             recovery.AEfList.Add(TargetHPCheck);
-            instance.actionDic.Add("SelfRecovery", recovery);
+            instance.actionDic.Add("Self Recovery", recovery);
         }
 
         /*Listen*/
@@ -276,7 +276,7 @@ public class Actions : MonoBehaviour
             GCDTimer -= Time.deltaTime;
             if(GCDTimer < 0)
             {
-                instance.TriggerAction("ComboAttack", player[0]);
+                instance.TriggerAction("Combo Attack", player[0]);
             }
         }
     }

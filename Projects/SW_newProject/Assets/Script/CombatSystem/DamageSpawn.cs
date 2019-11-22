@@ -9,10 +9,10 @@ public class DamageSpawn : MonoBehaviour
     public Text m_text;
     float timer = 0;
     int ownerID;
+    bool first = true;
 
     void Start()
     {
-        ownerID = owner.GetComponent<Entity>().ID;
         m_text.gameObject.SetActive(false);
         ActionEvent Physical = new ActionEvent();
         if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakeDamage", out Physical))
@@ -26,9 +26,18 @@ public class DamageSpawn : MonoBehaviour
             heal.AddListener(GetRecovery);
         }
     }
+    private void Init()
+    {
+        ownerID = owner.GetComponent<Entity>().ID;
+    }
 
     private void Update()
     {
+        if (first)
+        {
+            ownerID = owner.GetComponent<Entity>().ID;
+            first = false;
+        }
         if (m_text.gameObject.activeSelf)
         {
             timer += Time.deltaTime;

@@ -125,9 +125,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Skills:
-  - ArrowShot
-  - MultiShot
-  - SelfRecovery
+  - Arrow Shot
+  - Multi Shot
+  - Self Recovery
 --- !u!114 &3617839026763407418
 MonoBehaviour:
   m_ObjectHideFlags: 0
