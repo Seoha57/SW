@@ -19,6 +19,10 @@ public class CharacterInfo : MonoBehaviour
     public Text level;
     public int ID = 0;
 
+    public Text AttributePoint;
+
+    public GameObject AttributesPointButton;
+
     CharacterManager CM;
 
 
@@ -39,6 +43,12 @@ public class CharacterInfo : MonoBehaviour
         level.text = CM.GetCharacter(ID).Level.ToString();
         Exp.text = CM.GetCharacter(ID).XP.ToString();
         Exp_required.text = CM.GetCharacter(ID).XP_required.ToString();
+        AttributePoint.text = CM.GetAttributePoint(ID).ToString();
+
+        if (CM.GetAttributePoint(ID) < 1)
+            AttributesPointButton.SetActive(false);
+        else
+            AttributesPointButton.SetActive(true);
     }
 
 

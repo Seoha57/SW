@@ -100,22 +100,42 @@ public class User : MonoBehaviour
 
     public void ADD_HP()
     {
+        int point = CharacterManager.instance.GetAttributePoint(SelectedID);
+        if (point < 1)
+            return;
         CharacterManager.instance.AddMaxHealth(SelectedID, 10);
+        CharacterManager.instance.GetCharacter(SelectedID).attributePoint -= 1;
     }
     public void ADD_Mana()
     {
+        int point = CharacterManager.instance.GetAttributePoint(SelectedID);
+        if (point < 1)
+            return;
         CharacterManager.instance.AddMana(SelectedID, 1);
+        CharacterManager.instance.GetCharacter(SelectedID).attributePoint -= 1;
     }
     public void ADD_Damage()
     {
+        int point = CharacterManager.instance.GetAttributePoint(SelectedID);
+        if (point < 1)
+            return;
         CharacterManager.instance.AddDamage(SelectedID, 1);
+        CharacterManager.instance.GetCharacter(SelectedID).attributePoint -= 1;
     }
     public void ADD_Armor()
     {
+        int point = CharacterManager.instance.GetAttributePoint(SelectedID);
+        if (point < 1)
+            return;
         CharacterManager.instance.AddArmor(SelectedID, 1);
+        CharacterManager.instance.GetCharacter(SelectedID).attributePoint -= 1;
     }
     public void ADD_Speed()
     {
+        int point = CharacterManager.instance.GetAttributePoint(SelectedID);
+        if (point < 1)
+            return;
         CharacterManager.instance.AddSpeed(SelectedID, 1);
+        CharacterManager.instance.GetCharacter(SelectedID).attributePoint -= 1;
     }
 }
