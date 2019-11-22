@@ -71,7 +71,7 @@ public class Actions : MonoBehaviour
     private void OnDisable()
     {
         tempComboCount = 0;
-        GCDTimer = GCD;
+        GCDTimer = 0;
         for (int i = 0; i < OGCDTimer.Length; ++i)
         {
             OGCDTimer[i] = OGCD[i];
@@ -270,6 +270,15 @@ public class Actions : MonoBehaviour
                 instance.TriggerAction("Attack", enemy[i]);
             }
         }
+
+        if(comboAttacking)
+        {
+            GCDTimer -= Time.deltaTime;
+            if(GCDTimer < 0)
+            {
+                instance.TriggerAction("ComboAttack", player[0]);
+            }
+        }
     }
 
     void DealBasicDamage(Entity e)
@@ -315,17 +324,17 @@ public class Actions : MonoBehaviour
     {
         damage = actionHelper.DamageMod(e, AttackType.PHYSICAL);
 
-        if (playerAlive && enemyAlive && OGCDTimer[1] <= 0)
+        if (playerAlive && enemyAlive && OGCDTimer[1] <= 0 && GCDTimer <= 0)
         {
             if (tempComboCount < comboCount)
             {
                 comboAttacking = true;
                 damage = damage + (damage * (0.2f * tempComboCount));
                 ++tempComboCount;
-                StartCoroutine(ComboAttackCool(GCD, e));
                 instance.TriggerActionEvent("TakeDamage", e);
                 instance.TriggerActionEvent("UseSkill", e);
                 instance.TriggerActionEvent("ComboAttackStart", e);
+                GCDTimer = GCD;
             }
             else
             {
@@ -334,15 +343,16 @@ public class Actions : MonoBehaviour
                 instance.TriggerActionEvent("OGCD2_Init", e);
                 instance.TriggerActionEvent("ComboAttackFinish", e);
                 OGCDTimer[1] = OGCD[1];
+                GCDTimer = 0;
             }
         }
     }
 
-    IEnumerator ComboAttackCool(float coolTime, Entity e)
-    {
-        yield return new WaitForSeconds(coolTime);
-        DealComboDamage(e);
-    }
+    //IEnumerator ComboAttackCool(float coolTime, Entity e)
+    //{
+    //    yield return new WaitForSeconds(coolTime);
+    //    DealComboDamage(e);
+    //}
 
     void DealMultipleShot(Entity e)
     {

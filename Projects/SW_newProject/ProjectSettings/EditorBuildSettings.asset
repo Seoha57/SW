@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SW_Demo/Legends.unity
     guid: c8044c6d87e590d40ab869eba01018ed
   - enabled: 1
-    path: Assets/Scenes/SW_Demo/Stage1.unity
+    path: Assets/Scenes/SW_Demo/Stage1/Dungeon1_1.unity
     guid: 1aa97f2c193d78849a033e3f910d1c09
   - enabled: 0
     path: Assets/Scenes/Demo/Start.unity
@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SW_Demo/Items.unity
     guid: e6fd2978f00029c4da0f09bd7f4177f9
   - enabled: 1
-    path: Assets/Scenes/SW_Demo/Stage2.unity
+    path: Assets/Scenes/SW_Demo/Stage2/Dungeon2_1.unity
     guid: e6cb59e7f35657b4689cc98a6a1af5cb
+  - enabled: 1
+    path: Assets/Scenes/SW_Demo/Stage1/Dungeon1_2.unity
+    guid: 3194fa2ed6911c247b9f15b5c469c294
   m_configObjects: {}
