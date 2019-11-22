@@ -127,6 +127,15 @@ public class Character : Entity
         {
             Debug.Log("Changed! ");
             oldItem = items[itemIndex];
+
+            CharacterManager.instance.AddMaxHealth(ID, -oldItem.MaxHealthModifier);
+            CharacterManager.instance.AddArmor(ID, -oldItem.ArmorModifier);
+            CharacterManager.instance.AddMana(ID, -oldItem.ManaModifier);
+            CharacterManager.instance.AddDamage(ID, -oldItem.DamageModifier);
+            CharacterManager.instance.AddSpeed(ID, -oldItem.SpeedModifier);
+
+
+
             Inventory.instance.Add(oldItem);
         }
 
