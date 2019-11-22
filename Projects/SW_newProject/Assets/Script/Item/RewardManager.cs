@@ -35,7 +35,6 @@ public class RewardManager : MonoBehaviour
 
     }
     
-
     public Item GetRandomItem()
     {
         return rand_item;
@@ -87,8 +86,6 @@ public class RewardManager : MonoBehaviour
         rand_item = Item.Copy(items[Random.Range(0, items.Count)]);
         Prob();
         
-
-
         icon.sprite = rand_item.icon;
         Debug.Log("Random Item Spawn " + rand_item.name);
     }

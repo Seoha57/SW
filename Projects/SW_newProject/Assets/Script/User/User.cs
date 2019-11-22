@@ -11,7 +11,10 @@ public class User : MonoBehaviour
     public CharacterManager characterManager;
     public Inventory inventory;
     public int SelectedID=0;
-    
+
+    public bool Warrior = true;
+    public bool Archer = false;
+    public bool Wizard = false;
 
     private void Update()
     {
