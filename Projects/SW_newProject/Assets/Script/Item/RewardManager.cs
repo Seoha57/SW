@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class RewardManager : MonoBehaviour
 {
+    /*************************/
+    private SoundManager SM;
+    public GameObject soundMgr;
+    public int prevStage;
+
     public static RewardManager instance;
 
     public Image icon;
@@ -25,6 +30,8 @@ public class RewardManager : MonoBehaviour
 
     private void Awake()
     {
+        soundMgr = GameObject.Find("SoundManager");
+        SM = soundMgr.GetComponent<SoundManager>();
         ID = user.SelectedID;
         if(instance == null)
         {
@@ -32,7 +39,7 @@ public class RewardManager : MonoBehaviour
             RandomSpawn();
             gold = Random.Range(20, 100);
         }
-
+        prevStage = SM.prevStage;
     }
     
     public Item GetRandomItem()

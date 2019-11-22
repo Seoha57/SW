@@ -20,6 +20,8 @@ public class SoundManager : MonoBehaviour
     int numberOfChannel;
     int count = 0;
 
+    public int prevStage;
+
     string prevScene;
     string currScene;
 
@@ -68,20 +70,22 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name != prevScene)
+        currScene = SceneManager.GetActiveScene().name;
+        if (currScene != prevScene)
         {
-            currScene = SceneManager.GetActiveScene().name;
-            if (currScene == "Stage1")
+            if (currScene == "Dungeon1_1")
             {
                 ChangeBGM(1);
                 BGM.volume = 0.5f;
+                prevStage = 1;
             }
-            else if(currScene == "Stage2")
+            else if(currScene == "Dungeon2_1")
             {
                 ChangeBGM(2);
                 BGM.volume = 0.5f;
+                prevStage = 2;
             }
-            else
+            else if(currScene != "Dungeon1_2" && currScene != "Dungeon2_2")
             {
                 if (BGM.clip != BGMSound[0])
                 {
