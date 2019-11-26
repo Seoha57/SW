@@ -30,27 +30,27 @@ public class SelectMode : MonoBehaviour
     public void SelectedMode1()
     {
         //Tutorial
-        UIbutton.buttontype = FlexibleUIButton.ButtonType.Type1;
+        UIbutton.buttontype = FlexibleUIButton.ButtonType.Type2;
         selectMode.gameObject.SetActive(false);
-        mode = 1;
+        mode = 2;
         BSC.SceneName = "Dungeon1_1";
     }
     public void SelectedMode2()
     {
         //Dungeon1
-        UIbutton.buttontype = FlexibleUIButton.ButtonType.Type2;
+        UIbutton.buttontype = FlexibleUIButton.ButtonType.Type3;
         selectMode.gameObject.SetActive(false);
-        mode = 2;
-        BSC.SceneName = "Dungeon1_1";
+        mode = 3;
+        BSC.SceneName = "Dungeon2_1";
 
     }
     public void SelectedMode3()
     {
         //Dungeon2
-        UIbutton.buttontype = FlexibleUIButton.ButtonType.Type3;
+        UIbutton.buttontype = FlexibleUIButton.ButtonType.Type4;
         selectMode.gameObject.SetActive(false);
-        mode = 3;
-        BSC.SceneName = "Dungeon2_1";
+        mode = 4;
+        BSC.SceneName = "Dungeon3_1";
 
     }
 }

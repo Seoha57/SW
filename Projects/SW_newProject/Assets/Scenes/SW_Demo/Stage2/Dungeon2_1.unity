@@ -1977,7 +1977,6 @@ MonoBehaviour:
   enemy:
   - {fileID: 1023975365}
   - {fileID: 1847606153}
-  - {fileID: 0}
 --- !u!114 &1006040700
 MonoBehaviour:
   m_ObjectHideFlags: 0
