@@ -562,7 +562,7 @@ public class Actions : MonoBehaviour
     {
         int next = ePos;
         if (ePos == 0) return 0;
-        for (int i = ePos - 1; i > 0; --i)
+        for (int i = ePos - 1; i >= 0; --i)
         {
             if (enemy[i].activeSelf)
             {

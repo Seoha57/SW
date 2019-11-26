@@ -46,6 +46,18 @@ public class ChangeTarget : MonoBehaviour
                     Player.target = action.enemy[2];
                     CombatSysMgr.instance.TriggerActionEvent("TargetIsChanged", action.player[0].GetComponent<Entity>());
                 }
+                if (hit.transform.name == "Enemy4")
+                {
+                    Player.target.transform.GetChild(0).gameObject.SetActive(false);
+                    Player.target = action.enemy[3];
+                    CombatSysMgr.instance.TriggerActionEvent("TargetIsChanged", action.player[0].GetComponent<Entity>());
+                }
+                if (hit.transform.name == "Enemy5")
+                {
+                    Player.target.transform.GetChild(0).gameObject.SetActive(false);
+                    Player.target = action.enemy[4];
+                    CombatSysMgr.instance.TriggerActionEvent("TargetIsChanged", action.player[0].GetComponent<Entity>());
+                }
             }
         }
     }
