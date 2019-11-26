@@ -6255,16 +6255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd63f90bfbc04e44830253a9cb22a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 0}
-  armor: {fileID: 0}
-  mana: {fileID: 0}
-  damage: {fileID: 0}
-  speed: {fileID: 0}
-  itemsParent: {fileID: 1171458880}
-  equipParent1: {fileID: 714774992}
-  equipParent2: {fileID: 2000722104}
-  characterinfo: {fileID: 303639793}
-  equipinfo: {fileID: 0}
 --- !u!4 &1693218156
 Transform:
   m_ObjectHideFlags: 0

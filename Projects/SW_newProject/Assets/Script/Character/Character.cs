@@ -99,15 +99,36 @@ public class Character : Entity
 
     public void RESET_ATTRIBUTE()
     {
-        CharacterManager.instance.SetAttributePoint(ID, 0);
+        CharacterManager.instance.SetAttributePoint(ID, 5);
         CharacterManager.instance.SetLevel(ID, 1);
         CharacterManager.instance.SetExp(ID, 0);
         CharacterManager.instance.SetExpRequired(ID, 100);
-        CharacterManager.instance.SetMaxHealth(ID, 100);
-        CharacterManager.instance.SetArmor(ID, 10);
-        CharacterManager.instance.SetMana(ID, 10);
-        CharacterManager.instance.SetDamage(ID, 10);
-        CharacterManager.instance.SetSpeed(ID, 10);
+        if(ID == 0)
+        {
+            CharacterManager.instance.SetMaxHealth(ID, 100);
+            CharacterManager.instance.SetArmor(ID, 10);
+            CharacterManager.instance.SetMana(ID, 10);
+            CharacterManager.instance.SetDamage(ID, 10);
+            CharacterManager.instance.SetSpeed(ID, 10);
+        }
+   
+        else if (ID == 1)
+        {
+            CharacterManager.instance.SetMaxHealth(ID, 200);
+            CharacterManager.instance.SetArmor(ID, 10);
+            CharacterManager.instance.SetMana(ID, 10);
+            CharacterManager.instance.SetDamage(ID, 10);
+            CharacterManager.instance.SetSpeed(ID, 10);
+        }
+
+        else if (ID == 2)
+        {
+            CharacterManager.instance.SetMaxHealth(ID, 300);
+            CharacterManager.instance.SetArmor(ID, 10);
+            CharacterManager.instance.SetMana(ID, 10);
+            CharacterManager.instance.SetDamage(ID, 10);
+            CharacterManager.instance.SetSpeed(ID, 10);
+        }
 
         for (int i = 0; i < items.Length; i++)
         {

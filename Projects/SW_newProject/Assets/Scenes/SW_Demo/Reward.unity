@@ -1980,6 +1980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59cb2ebb46714e44b5ce6445b1e962d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundMgr: {fileID: 0}
+  prevStage: 0
   icon: {fileID: 1658041553}
   flexibleButton: {fileID: 1590654771}
   items:

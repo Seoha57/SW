@@ -16,6 +16,10 @@ public class CharacterInfo : MonoBehaviour
     public Text Damage;
     public Text Speed;
 
+    public Text Item_a;
+    public Text Item_w;
+    public Text Item_s;
+
     public Text level;
     public int ID = 0;
 
@@ -44,6 +48,19 @@ public class CharacterInfo : MonoBehaviour
         Exp.text = CM.GetCharacter(ID).XP.ToString();
         Exp_required.text = CM.GetCharacter(ID).XP_required.ToString();
         AttributePoint.text = CM.GetAttributePoint(ID).ToString();
+
+        if (CM.GetCharacter(ID).items[0] != null)
+            Item_a.gameObject.SetActive(false);
+        else
+            Item_a.gameObject.SetActive(true);
+        if (CM.GetCharacter(ID).items[1] != null)
+            Item_w.gameObject.SetActive(false);
+        else
+            Item_w.gameObject.SetActive(true);
+        if (CM.GetCharacter(ID).items[2] != null)
+            Item_s.gameObject.SetActive(false);
+        else
+            Item_s.gameObject.SetActive(true);
 
         if (CM.GetAttributePoint(ID) < 1)
             AttributesPointButton.SetActive(false);

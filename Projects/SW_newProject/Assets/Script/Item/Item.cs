@@ -25,19 +25,20 @@ public class Item : ScriptableObject
 
     public static Item Copy(Item item)
     {
-        Item temp = new Item();
-
-        temp.name = item.name;
-        temp.equipSlot = item.equipSlot;
-        temp.rarity = item.rarity;
-        temp.level = item.level;
-        temp.icon = item.icon;
-        temp.isDefaultItem = item.isDefaultItem;
-        temp.MaxHealthModifier = item.MaxHealthModifier;
-        temp.ArmorModifier = item.ArmorModifier;
-        temp.ManaModifier = item.ManaModifier;
-        temp.DamageModifier = item.DamageModifier;
-        temp.SpeedModifier = item.SpeedModifier;
+        Item temp = new Item
+        {
+            name = item.name,
+            equipSlot = item.equipSlot,
+            rarity = item.rarity,
+            level = item.level,
+            icon = item.icon,
+            isDefaultItem = item.isDefaultItem,
+            MaxHealthModifier = item.MaxHealthModifier,
+            ArmorModifier = item.ArmorModifier,
+            ManaModifier = item.ManaModifier,
+            DamageModifier = item.DamageModifier,
+            SpeedModifier = item.SpeedModifier
+        };
 
         return temp;
        

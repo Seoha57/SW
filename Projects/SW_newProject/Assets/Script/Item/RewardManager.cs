@@ -13,7 +13,7 @@ public class RewardManager : MonoBehaviour
 
     public Image icon;
     public FlexibleUIButton flexibleButton;
-    public List<Equipment> items = new List<Equipment>();
+    public List<Item> items = new List<Item>();
 
     public User user;
     public int Xp = 100;
