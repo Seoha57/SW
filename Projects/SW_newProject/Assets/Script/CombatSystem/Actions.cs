@@ -298,40 +298,40 @@ public class Actions : MonoBehaviour
         {
             if (EnemyAttackTimer[0] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
-                instance.TriggerActionEvent("TakeDamage", e);
                 EnemyAttackTimer[0] = EnemyAttackCooltime[0];
+                instance.TriggerActionEvent("TakeDamage", e);
             }
         }
         else if (e.ID == 11)
         {
             if (EnemyAttackTimer[1] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
-                instance.TriggerActionEvent("TakeDamage", e);
                 EnemyAttackTimer[1] = EnemyAttackCooltime[1];
+                instance.TriggerActionEvent("TakeDamage", e);
             }
         }
         else if (e.ID == 12)
         {
             if (EnemyAttackTimer[2] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
-                instance.TriggerActionEvent("TakeDamage", e);
                 EnemyAttackTimer[2] = EnemyAttackCooltime[2];
+                instance.TriggerActionEvent("TakeDamage", e);
             }
         }
         else if (e.ID == 13)
         {
             if (EnemyAttackTimer[3] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
-                instance.TriggerActionEvent("TakeDamage", e);
                 EnemyAttackTimer[3] = EnemyAttackCooltime[3];
+                instance.TriggerActionEvent("TakeDamage", e);
             }
         }
         else if (e.ID == 14)
         {
             if (EnemyAttackTimer[4] <= 0 && (playerAlive && e.gameObject.activeSelf))
             {
-                instance.TriggerActionEvent("TakeDamage", e);
                 EnemyAttackTimer[4] = EnemyAttackCooltime[4];
+                instance.TriggerActionEvent("TakeDamage", e);
             }
         }
     }
@@ -356,10 +356,10 @@ public class Actions : MonoBehaviour
             {
                 tempComboCount = 0;
                 comboAttacking = false;
-                instance.TriggerActionEvent("OGCD2_Init", e);
-                instance.TriggerActionEvent("ComboAttackFinish", e);
                 OGCDTimer[1] = OGCD[1];
                 GCDTimer = 0;
+                instance.TriggerActionEvent("OGCD2_Init", e);
+                instance.TriggerActionEvent("ComboAttackFinish", e);
             }
         }
     }
@@ -424,57 +424,8 @@ public class Actions : MonoBehaviour
                         break;
                     }
             }
-            //if (enemy.Length == 1)
-            //{
-            //    instance.TriggerActionEvent("TakeDamage", e);
-            //    instance.TriggerActionEvent("TakeDamage", e);
-            //}
-            //else if (enemy.Length == 2)
-            //{
-            //    instance.TriggerActionEvent("TakeDamage", e);
-            //    GameObject temp = e.target;
-            //    if (temp == enemy[0])
-            //    {
-            //        e.target = enemy[1];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //    }
-            //    else if(temp == enemy[1])
-            //    {
-            //        e.target = enemy[0];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //    }
-            //    e.target = temp;
-            //}
-            //else
-            //{
-            //    GameObject temp = e.target;
-            //    if (e.target.GetComponent<Entity>().ID == 10)
-            //    {
-            //        e.target = enemy[1];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //        e.target = enemy[2];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //        e.target = temp;
-            //    }
-            //    else if (e.target.GetComponent<Entity>().ID == (10 + enemy.Length - 1))
-            //    {
-            //        e.target = enemy[enemy.Length - 2];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //        e.target = enemy[enemy.Length - 3];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //        e.target = temp;
-            //    }
-            //    else
-            //    {
-            //        e.target = enemy[e.target.GetComponent<Entity>().ID - 10 + 1];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //        e.target = enemy[e.target.GetComponent<Entity>().ID - 10 - 2];
-            //        instance.TriggerActionEvent("TakeDamage", e);
-            //        e.target = temp;
-            //    }
-            //}
-            instance.TriggerActionEvent("OGCD2_Init", e);
             OGCDTimer[1] = OGCD[1];
+            instance.TriggerActionEvent("OGCD2_Init", e);
         }
     }
 
@@ -484,10 +435,10 @@ public class Actions : MonoBehaviour
         damage *= 2.0f;
         if (OGCDTimer[1] <= 0 && playerAlive && enemyAlive)
         {
+            OGCDTimer[1] = OGCD[1];
             instance.TriggerActionEvent("UseSkill", e);
             instance.TriggerActionEvent("TakeDamage", e);
             instance.TriggerActionEvent("OGCD2_Init", e);
-            OGCDTimer[1] = OGCD[1];
         }
     }
 
@@ -498,10 +449,10 @@ public class Actions : MonoBehaviour
         {
             if (OGCDTimer[2] <= 0 && playerAlive && enemyAlive)
             {
+                OGCDTimer[2] = OGCD[2];
                 instance.TriggerActionEvent("UseSkill", e);
                 instance.TriggerActionEvent("SelfHeal", e);
                 instance.TriggerActionEvent("OGCD3_Init", e);
-                OGCDTimer[2] = OGCD[2];
             }
         }
     }

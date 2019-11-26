@@ -25,7 +25,7 @@ public class WinAndLose : MonoBehaviour
     void Win(Entity e)
     {
         m_text.gameObject.SetActive(true);
-        m_text.text = "Clear this Stage";
+        m_text.text = "Clear this Dungeon";
     }
 
     void Lose(Entity e)

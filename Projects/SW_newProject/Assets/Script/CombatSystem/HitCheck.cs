@@ -69,7 +69,8 @@ public class HitCheck : MonoBehaviour
         if (ownerID == e.target.GetComponent<Entity>().ID)
         {
             owner.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
-            StartCoroutine(Shake());
+            if(owner.activeSelf)
+                StartCoroutine(Shake());
         }
     }
 

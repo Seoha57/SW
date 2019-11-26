@@ -8,10 +8,11 @@ public class DamageSpawn : MonoBehaviour
     public GameObject owner;
     public Text m_text;
     float timer = 0;
-    int ownerID;
+    Vector3 originalPos;
 
     void Start()
     {
+        originalPos = m_text.gameObject.transform.position;
         m_text.gameObject.SetActive(false);
         ActionEvent Physical = new ActionEvent();
         if (CombatSysMgr.instance.actionEventDic.TryGetValue("TakeDamage", out Physical))
@@ -24,20 +25,18 @@ public class DamageSpawn : MonoBehaviour
         {
             heal.AddListener(GetRecovery);
         }
-        Init();
-    }
-    private void Init()
-    {
-        ownerID = owner.GetComponent<Entity>().ID;
     }
 
     private void Update()
     {
+
         if (m_text.gameObject.activeSelf)
         {
             timer += Time.deltaTime;
+            m_text.gameObject.transform.position += new Vector3(0, Time.deltaTime * 5f, 0);
             if (timer > 1)
             {
+                m_text.gameObject.transform.position = originalPos;
                 m_text.gameObject.SetActive(false);
                 timer = 0;
             }
@@ -46,7 +45,7 @@ public class DamageSpawn : MonoBehaviour
 
     void GetDamage(Entity e)
     {
-        if (ownerID == e.target.GetComponent<Entity>().ID)
+        if (owner.GetComponent<Entity>().ID == e.target.GetComponent<Entity>().ID)
         {
             m_text.gameObject.SetActive(true);
             m_text.text = Actions.GetPhysicalDamage().ToString();
@@ -58,7 +57,7 @@ public class DamageSpawn : MonoBehaviour
 
     void GetRecovery(Entity e)
     {
-        if(ownerID == e.ID)
+        if(owner.GetComponent<Entity>().ID == e.ID)
         {
             m_text.gameObject.SetActive(true);
             m_text.text = Actions.GetRecoveryValue().ToString();
