@@ -1135,6 +1135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 473586851}
+  shakeAmt: 5
 --- !u!114 &473586853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,6 +2039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 1023975365}
+  shakeAmt: 5
 --- !u!114 &1023975367
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3455,6 +3457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 1847606153}
+  shakeAmt: 5
 --- !u!114 &1847606155
 MonoBehaviour:
   m_ObjectHideFlags: 0

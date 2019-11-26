@@ -9,7 +9,6 @@ public class DamageSpawn : MonoBehaviour
     public Text m_text;
     float timer = 0;
     int ownerID;
-    bool first = true;
 
     void Start()
     {
@@ -25,6 +24,7 @@ public class DamageSpawn : MonoBehaviour
         {
             heal.AddListener(GetRecovery);
         }
+        Init();
     }
     private void Init()
     {
@@ -33,11 +33,6 @@ public class DamageSpawn : MonoBehaviour
 
     private void Update()
     {
-        if (first)
-        {
-            ownerID = owner.GetComponent<Entity>().ID;
-            first = false;
-        }
         if (m_text.gameObject.activeSelf)
         {
             timer += Time.deltaTime;

@@ -10,6 +10,8 @@ public class HitCheck : MonoBehaviour
     float timer = 0;
     int ownerID;
     bool first = true;
+    bool shaking = false;
+    float shakeAmt = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +53,15 @@ public class HitCheck : MonoBehaviour
                 timer = 0;
             }
         }
+        if(shaking)
+        {
+            Vector3 newPos;
+            newPos.x = transform.position.x + (Random.Range(-0.5f,0.5f) * (Time.deltaTime * shakeAmt));
+            newPos.y = transform.position.y;
+            newPos.z = transform.position.z;
+
+            transform.position = newPos;
+        }
     }
 
     void Hitted(Entity e)
@@ -58,6 +69,7 @@ public class HitCheck : MonoBehaviour
         if (ownerID == e.target.GetComponent<Entity>().ID)
         {
             owner.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
+            StartCoroutine(Shake());
         }
     }
 
@@ -67,5 +79,20 @@ public class HitCheck : MonoBehaviour
         {
             owner.GetComponent<Renderer>().material.color = new Color(0, 255, 0);
         }
+    }
+
+    IEnumerator Shake()
+    {
+        Vector3 originalPos = transform.position;
+
+        if (shaking == false)
+        {
+            shaking = true;
+        }
+
+        yield return new WaitForSeconds(0.2f);
+
+        shaking = false;
+        transform.position = originalPos;
     }
 }
