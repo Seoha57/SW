@@ -348,12 +348,6 @@ public class Actions : MonoBehaviour
         }
     }
 
-    //IEnumerator ComboAttackCool(float coolTime, Entity e)
-    //{
-    //    yield return new WaitForSeconds(coolTime);
-    //    DealComboDamage(e);
-    //}
-
     void DealMultipleShot(Entity e)
     {
         damage = actionHelper.DamageMod(e, AttackType.PHYSICAL);
@@ -365,55 +359,104 @@ public class Actions : MonoBehaviour
             instance.TriggerActionEvent("TakeDamage", e);
             new WaitForSeconds(1.5f);
 
-            if (enemy.Length == 1)
+            switch (enemy.Length)
             {
-                instance.TriggerActionEvent("TakeDamage", e);
-                instance.TriggerActionEvent("TakeDamage", e);
+                case 1:
+                    instance.TriggerActionEvent("TakeDamage", e);
+                    instance.TriggerActionEvent("TakeDamage", e);
+                    break;
+
+                case 2:
+                    {
+                        instance.TriggerActionEvent("TakeDamage", e);
+                        GameObject temp = e.target;
+                        if (temp == enemy[0])
+                        {
+                            e.target = enemy[1];
+                            instance.TriggerActionEvent("TakeDamage", e);
+                        }
+                        else if (temp == enemy[1])
+                        {
+                            e.target = enemy[0];
+                            instance.TriggerActionEvent("TakeDamage", e);
+                        }
+                        e.target = temp;
+                        break;
+                    }
+                default:
+                    {
+                        GameObject temp = e.target;
+                        int enemy_num = 0;
+                        for(int i = 0; i < enemy.Length; ++i)
+                        {
+                            if(enemy[i].GetComponent<Entity>().ID == e.target.GetComponent<Entity>().ID)
+                            {
+                                enemy_num = i;
+                                break;
+                            }
+                        }
+
+                        int next = LookLeft(enemy_num);
+                        e.target = enemy[next];
+                        instance.TriggerActionEvent("TakeDamage", e);
+
+                        next = LookRight(enemy_num);
+                        e.target = enemy[next];
+                        instance.TriggerActionEvent("TakeDamage", e);
+
+                        e.target = temp;
+                        break;
+                    }
             }
-            else if (enemy.Length == 2)
-            {
-                instance.TriggerActionEvent("TakeDamage", e);
-                GameObject temp = e.target;
-                if (temp == enemy[0])
-                {
-                    e.target = enemy[1];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                }
-                else if(temp == enemy[1])
-                {
-                    e.target = enemy[0];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                }
-                e.target = temp;
-            }
-            else
-            {
-                GameObject temp = e.target;
-                if (e.target.GetComponent<Entity>().ID == 10)
-                {
-                    e.target = enemy[1];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                    e.target = enemy[2];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                    e.target = temp;
-                }
-                else if (e.target.GetComponent<Entity>().ID == (10 + enemy.Length - 1))
-                {
-                    e.target = enemy[enemy.Length - 2];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                    e.target = enemy[enemy.Length - 3];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                    e.target = temp;
-                }
-                else
-                {
-                    e.target = enemy[e.target.GetComponent<Entity>().ID - 10 + 1];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                    e.target = enemy[e.target.GetComponent<Entity>().ID - 10 - 2];
-                    instance.TriggerActionEvent("TakeDamage", e);
-                    e.target = temp;
-                }
-            }
+            //if (enemy.Length == 1)
+            //{
+            //    instance.TriggerActionEvent("TakeDamage", e);
+            //    instance.TriggerActionEvent("TakeDamage", e);
+            //}
+            //else if (enemy.Length == 2)
+            //{
+            //    instance.TriggerActionEvent("TakeDamage", e);
+            //    GameObject temp = e.target;
+            //    if (temp == enemy[0])
+            //    {
+            //        e.target = enemy[1];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //    }
+            //    else if(temp == enemy[1])
+            //    {
+            //        e.target = enemy[0];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //    }
+            //    e.target = temp;
+            //}
+            //else
+            //{
+            //    GameObject temp = e.target;
+            //    if (e.target.GetComponent<Entity>().ID == 10)
+            //    {
+            //        e.target = enemy[1];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //        e.target = enemy[2];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //        e.target = temp;
+            //    }
+            //    else if (e.target.GetComponent<Entity>().ID == (10 + enemy.Length - 1))
+            //    {
+            //        e.target = enemy[enemy.Length - 2];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //        e.target = enemy[enemy.Length - 3];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //        e.target = temp;
+            //    }
+            //    else
+            //    {
+            //        e.target = enemy[e.target.GetComponent<Entity>().ID - 10 + 1];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //        e.target = enemy[e.target.GetComponent<Entity>().ID - 10 - 2];
+            //        instance.TriggerActionEvent("TakeDamage", e);
+            //        e.target = temp;
+            //    }
+            //}
             instance.TriggerActionEvent("OGCD2_Init", e);
             OGCDTimer[1] = OGCD[1];
         }
@@ -499,6 +542,39 @@ public class Actions : MonoBehaviour
         e.target.transform.GetChild(0).gameObject.SetActive(true);
     }
 
+    int LookLeft(int ePos)
+    {
+        int next = ePos;
+
+        for (int i = ePos; i > 0; --i)
+        {
+            if (enemy[i].activeSelf)
+            {
+                next = i;
+                break;
+            }
+        }
+
+        return next;
+    }
+
+    int LookRight(int ePos)
+    {
+        int next = ePos;
+
+        for (int i = ePos; i < enemy.Length; ++i)
+        {
+            if (enemy[i].activeSelf)
+            {
+                next = i;
+                break;
+            }
+        }
+
+        return next;
+    }
+
+    #region Get Functions
     public static float GetPhysicalDamage()
     {
         return damage;
@@ -528,4 +604,5 @@ public class Actions : MonoBehaviour
     {
         return GCDTimer;
     }
+    #endregion
 }
