@@ -318,6 +318,22 @@ public class Actions : MonoBehaviour
                 EnemyAttackTimer[2] = EnemyAttackCooltime[2];
             }
         }
+        else if (e.ID == 13)
+        {
+            if (EnemyAttackTimer[3] <= 0 && (playerAlive && e.gameObject.activeSelf))
+            {
+                instance.TriggerActionEvent("TakeDamage", e);
+                EnemyAttackTimer[3] = EnemyAttackCooltime[3];
+            }
+        }
+        else if (e.ID == 14)
+        {
+            if (EnemyAttackTimer[4] <= 0 && (playerAlive && e.gameObject.activeSelf))
+            {
+                instance.TriggerActionEvent("TakeDamage", e);
+                EnemyAttackTimer[4] = EnemyAttackCooltime[4];
+            }
+        }
     }
 
     void DealComboDamage(Entity e)
@@ -545,8 +561,8 @@ public class Actions : MonoBehaviour
     int LookLeft(int ePos)
     {
         int next = ePos;
-
-        for (int i = ePos; i > 0; --i)
+        if (ePos == 0) return 0;
+        for (int i = ePos - 1; i > 0; --i)
         {
             if (enemy[i].activeSelf)
             {
@@ -562,7 +578,9 @@ public class Actions : MonoBehaviour
     {
         int next = ePos;
 
-        for (int i = ePos; i < enemy.Length; ++i)
+        if (ePos == enemy.Length - 1) return ePos;
+
+        for (int i = ePos + 1; i < enemy.Length; ++i)
         {
             if (enemy[i].activeSelf)
             {
