@@ -20,6 +20,7 @@ public class Item : ScriptableObject
     public int RarePoint = 2;
     public int EpicPoint = 3;
     public int LegendPoint = 4;
+    public int HiddenPoint = 5;
 
     public ItemInfo iteminfo;
 
@@ -107,6 +108,9 @@ public class Item : ScriptableObject
             case Rarity.Legendary:
                 Modifier(9);
                 break;
+            case Rarity.Hidden:
+                Modifier(11);
+                break;
             default:
                 break;
         }
@@ -128,6 +132,9 @@ public class Item : ScriptableObject
             case Rarity.Legendary:
                 Modifier(LegendPoint);
                 break;
+            case Rarity.Hidden:
+                Modifier(HiddenPoint);
+                break;
             default:
                 break;
         }
@@ -136,4 +143,4 @@ public class Item : ScriptableObject
 
 
 public enum EquipmentSlot { Armor, Weapon, Accessorie }
-public enum Rarity { Normal, Rare, Epic, Legendary}
+public enum Rarity { Normal, Rare, Epic, Legendary, Hidden}

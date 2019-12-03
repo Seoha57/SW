@@ -21,9 +21,8 @@ public class CharacterManager : MonoBehaviour
             for (int i = 0; i < player.Length; i++)
             {
                 characters.Add(player[i].GetComponent<Character>());
-
+                characters[i].RESET_ATTRIBUTE();
             }
-
             enemys = new List<Enemy>();
             enemys.Clear();
             for (int i = 0; i < enemy.Length; i++)

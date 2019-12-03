@@ -15,6 +15,7 @@ public class EquipInfo : MonoBehaviour
     public Text ManaModifier;
     public Text DamageModifier;
     public Text SpeedModifier;
+    public FlexibleUIButton infobox;
 
     private int ID;
     private void Start()
@@ -34,6 +35,29 @@ public class EquipInfo : MonoBehaviour
             ManaModifier.text = inventoryUI.slots[ID].item.ManaModifier.ToString();
             DamageModifier.text = inventoryUI.slots[ID].item.DamageModifier.ToString();
             SpeedModifier.text = inventoryUI.slots[ID].item.SpeedModifier.ToString();
+
+            switch (inventoryUI.slots[ID].item.rarity)
+            {
+                case Rarity.Normal:
+                    infobox.buttontype = FlexibleUIButton.ButtonType.Type1;
+                    break;
+                case Rarity.Rare:
+                    infobox.buttontype = FlexibleUIButton.ButtonType.Type2;
+                    break;
+                case Rarity.Epic:
+                    infobox.buttontype = FlexibleUIButton.ButtonType.Type3;
+                    break;
+                case Rarity.Legendary:
+                    infobox.buttontype = FlexibleUIButton.ButtonType.Type4;
+                    break;
+                case Rarity.Hidden:
+                    infobox.buttontype = FlexibleUIButton.ButtonType.Type5;
+                    break;
+                default:
+                    infobox.buttontype = FlexibleUIButton.ButtonType.Type1;
+                    break;
+            }
+          
         }
  
     }

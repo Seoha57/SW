@@ -38,6 +38,9 @@ public class EquipSlot : MonoBehaviour
             case Rarity.Legendary:
                 flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type4;
                 break;
+            case Rarity.Hidden:
+                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type5;
+                break;
             default:
                 flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
                 break;

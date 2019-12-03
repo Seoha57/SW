@@ -126,7 +126,7 @@ public class crafting : MonoBehaviour
                 break;
             case Rarity.Legendary:
                 Result.buttontype = FlexibleUIButton.ButtonType.Type5;
-                ResultRarity = Rarity.Legendary;
+                ResultRarity = Rarity.Hidden;
                 break;
             default:
                 Result.buttontype = FlexibleUIButton.ButtonType.Type1;

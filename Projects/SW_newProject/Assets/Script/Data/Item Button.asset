@@ -25,9 +25,9 @@ MonoBehaviour:
   type1Icon: {fileID: 0}
   type2Color: {r: 0.23335704, g: 0.4713318, b: 0.8679245, a: 1}
   type2Icon: {fileID: 0}
-  type3Color: {r: 0.8773585, g: 0.5987862, b: 0.21106264, a: 1}
+  type3Color: {r: 0.69793165, g: 0.21176468, b: 0.8784314, a: 1}
   type3Icon: {fileID: 0}
-  type4Color: {r: 0.70809245, g: 0.26032397, b: 0.8490566, a: 1}
+  type4Color: {r: 0.9716981, g: 0.6063356, b: 0.050418302, a: 1}
   type4Icon: {fileID: 0}
   type5Color: {r: 0.29504877, g: 1, b: 0.0047169924, a: 1}
   type5Icon: {fileID: 0}
