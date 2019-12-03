@@ -344,12 +344,15 @@ public class Actions : MonoBehaviour
         {
             if (tempComboCount < comboCount)
             {
+                if(comboAttacking == false)
+                {
+                    instance.TriggerActionEvent("UseSkill", e);
+                    instance.TriggerActionEvent("ComboAttackStart", e);
+                }
                 comboAttacking = true;
                 damage = damage + (damage * (0.2f * tempComboCount));
                 ++tempComboCount;
                 instance.TriggerActionEvent("TakeDamage", e);
-                instance.TriggerActionEvent("UseSkill", e);
-                instance.TriggerActionEvent("ComboAttackStart", e);
                 GCDTimer = GCD;
             }
             else

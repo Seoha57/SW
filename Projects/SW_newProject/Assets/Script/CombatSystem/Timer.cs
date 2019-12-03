@@ -27,9 +27,14 @@ public class Timer : MonoBehaviour
         }
         else if (SkillNum == 1)
         {
-            if (CombatSysMgr.instance.actionEventDic.TryGetValue("OGCD2_Init", out timeReset))
+            ActionEvent timeResetForPowerSkill = new ActionEvent();
+            if (CombatSysMgr.instance.actionEventDic.TryGetValue("OGCD2_Init", out timeResetForPowerSkill))
             {
-                timeReset.AddListener(TimerReset);
+                timeResetForPowerSkill.AddListener(TimerReset);
+            }
+            if (CombatSysMgr.instance.actionEventDic.TryGetValue("ComboAttackStart", out timeResetForPowerSkill))
+            {
+                timeResetForPowerSkill.AddListener(TimerReset);
             }
         }
         else if (SkillNum == 2)
