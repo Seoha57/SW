@@ -92,6 +92,17 @@ public class Actions : MonoBehaviour
         if (check == null)
             instance.actionEventDic.Add("TakeDamage", new ActionEvent());
 
+        /**/
+        instance.actionEventDic.TryGetValue("UseFire", out check);
+        if (check == null)
+            instance.actionEventDic.Add("UseFire", new ActionEvent());
+
+        instance.actionEventDic.TryGetValue("UseThunder", out check);
+        if (check == null)
+            instance.actionEventDic.Add("UseThunder", new ActionEvent());
+        /**/
+
+
         instance.actionEventDic.TryGetValue("UseSkill", out check);
         if (check == null)
             instance.actionEventDic.Add("UseSkill", new ActionEvent());
@@ -288,6 +299,11 @@ public class Actions : MonoBehaviour
         {
             if (OGCDTimer[0] <= 0 && (playerAlive && enemyAlive))
             {
+                if(e.ID == 2)
+                {
+                    instance.TriggerActionEvent("UseFire", e);
+                }
+
                 instance.TriggerActionEvent("UseSkill", e);
                 instance.TriggerActionEvent("TakeDamage", e);
                 instance.TriggerActionEvent("OGCD1_Init", e);
@@ -439,6 +455,7 @@ public class Actions : MonoBehaviour
         if (OGCDTimer[1] <= 0 && playerAlive && enemyAlive)
         {
             OGCDTimer[1] = OGCD[1];
+            instance.TriggerActionEvent("UseThunder", e);
             instance.TriggerActionEvent("UseSkill", e);
             instance.TriggerActionEvent("TakeDamage", e);
             instance.TriggerActionEvent("OGCD2_Init", e);
