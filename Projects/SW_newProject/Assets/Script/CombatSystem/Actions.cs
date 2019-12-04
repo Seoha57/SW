@@ -88,11 +88,14 @@ public class Actions : MonoBehaviour
     {
         /*Action Event list*/
         ActionEvent check = null;
-        instance.actionEventDic.TryGetValue("TakeDamage", out check);
+        instance.actionEventDic.TryGetValue("UseAttack", out check);
         if (check == null)
-            instance.actionEventDic.Add("TakeDamage", new ActionEvent());
+            instance.actionEventDic.Add("UseAttack", new ActionEvent());
 
-        /**/
+        instance.actionEventDic.TryGetValue("UseArrowShot", out check);
+        if (check == null)
+            instance.actionEventDic.Add("UseArrowShot", new ActionEvent());
+
         instance.actionEventDic.TryGetValue("UseFire", out check);
         if (check == null)
             instance.actionEventDic.Add("UseFire", new ActionEvent());
@@ -100,8 +103,10 @@ public class Actions : MonoBehaviour
         instance.actionEventDic.TryGetValue("UseThunder", out check);
         if (check == null)
             instance.actionEventDic.Add("UseThunder", new ActionEvent());
-        /**/
 
+        instance.actionEventDic.TryGetValue("TakeDamage", out check);
+        if (check == null)
+            instance.actionEventDic.Add("TakeDamage", new ActionEvent());
 
         instance.actionEventDic.TryGetValue("UseSkill", out check);
         if (check == null)
@@ -299,7 +304,15 @@ public class Actions : MonoBehaviour
         {
             if (OGCDTimer[0] <= 0 && (playerAlive && enemyAlive))
             {
-                if(e.ID == 2)
+                if(e.ID == 0)
+                {
+                    instance.TriggerActionEvent("UseAttack", e);
+                }
+                else if (e.ID == 1)
+                {
+                    instance.TriggerActionEvent("UseArrowShot", e);
+                }
+                else if(e.ID == 2)
                 {
                     instance.TriggerActionEvent("UseFire", e);
                 }
@@ -367,8 +380,9 @@ public class Actions : MonoBehaviour
                 }
                 comboAttacking = true;
                 damage = damage + (damage * (0.2f * tempComboCount));
-                ++tempComboCount;
+                instance.TriggerActionEvent("UseAttack", e);
                 instance.TriggerActionEvent("TakeDamage", e);
+                ++tempComboCount;
                 GCDTimer = GCD;
             }
             else

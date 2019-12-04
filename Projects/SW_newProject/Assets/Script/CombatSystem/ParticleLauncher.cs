@@ -25,6 +25,18 @@ public class ParticleLauncher : MonoBehaviour
         {
             thunder.AddListener(ThunderParticle);
         }
+
+        ActionEvent attack = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("UseAttack", out attack))
+        {
+            attack.AddListener(PhysicalParticle);
+        }
+
+        ActionEvent arrowShot = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("UseArrowShot", out arrowShot))
+        {
+            arrowShot.AddListener(PhysicalParticle);
+        }
     }
 
     // Update is called once per frame
@@ -60,5 +72,27 @@ public class ParticleLauncher : MonoBehaviour
 
         particleLauncher[4].Emit(1);
         particleLauncher[5].Emit(10);
+    }
+
+    void PhysicalParticle(Entity e)
+    {
+        if(e.ID == 0)
+        {
+            Vector3 pos = e.target.GetComponent<Transform>().position;
+            particleLauncher[6].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+            particleLauncher[7].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+
+            particleLauncher[6].Emit(1);
+            particleLauncher[7].Emit(10);
+        }
+    }
+    void ArrowShotParticle(Entity e)
+    {
+        Vector3 pos = e.target.GetComponent<Transform>().position;
+        particleLauncher[8].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+        particleLauncher[9].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+
+        particleLauncher[8].Emit(1);
+        particleLauncher[9].Emit(10);
     }
 }
