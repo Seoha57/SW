@@ -18,6 +18,7 @@ public class User : MonoBehaviour
 
     private void Update()
     {
+
         // If we press left mouse
         if (Input.GetButtonDown("Fire1"))
         {

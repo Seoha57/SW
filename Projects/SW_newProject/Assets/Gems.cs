@@ -10,5 +10,14 @@ public class Gems : MonoBehaviour
     private void Update()
     {
         gems.text = user.Gem.ToString();
+        if (Input.GetKeyDown(KeyCode.PageDown))
+        {
+            user.Gem = 0;
+            user.Gold= 0;
+        }
+        if (Input.GetKeyDown(KeyCode.PageUp))
+        {
+            user.Gem += 1000000;
+        }
     }
 }

@@ -18,6 +18,7 @@ public class StoreManager : MonoBehaviour
     public GameObject GemList;
     public GameObject ItemList;
     public GameObject LegendsList;
+    public GameObject CharactersList;
 
 
     private void Start()
@@ -85,6 +86,7 @@ public class StoreManager : MonoBehaviour
         GemList.SetActive(false);
         ItemList.SetActive(false);
         LegendsList.SetActive(false);
+        CharactersList.SetActive(false);
     }
 
     public void OnClickGemMenu()
@@ -93,6 +95,7 @@ public class StoreManager : MonoBehaviour
         GemList.SetActive(true);
         ItemList.SetActive(false);
         LegendsList.SetActive(false);
+        CharactersList.SetActive(false);
     }
     public void OnClickItemMenu()
     {
@@ -100,6 +103,7 @@ public class StoreManager : MonoBehaviour
         GemList.SetActive(false);
         ItemList.SetActive(true);
         LegendsList.SetActive(false);
+        CharactersList.SetActive(false);
     }
     public void OnClickLegendsMenu()
     {
@@ -107,5 +111,6 @@ public class StoreManager : MonoBehaviour
         GemList.SetActive(false);
         ItemList.SetActive(false);
         LegendsList.SetActive(true);
+        CharactersList.SetActive(true);
     }
 }
