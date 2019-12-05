@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class RewardManager : MonoBehaviour
 {
-    /*************************/
     private SoundManager SM;
     public GameObject soundMgr;
     public int prevStage;

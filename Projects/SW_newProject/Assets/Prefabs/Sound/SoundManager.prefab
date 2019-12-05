@@ -154,10 +154,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3be965d84d90d42459e642c1290c6a4a, type: 3}
   - {fileID: 8300000, guid: 021f93349caa4f34dadf32b5524c1334, type: 3}
   - {fileID: 8300000, guid: 631cf410616ef4a4d838a033dc4327d2, type: 3}
+  - {fileID: 8300000, guid: 781438391db88f0439fe3f85c4860f44, type: 3}
   BGMName:
   - MainMenu
   - Stage1
   - Stage2
+  - Reward
   soundEffectChannel:
   - {fileID: 5136740340686776105}
   - {fileID: 5136740340720206316}
@@ -173,6 +175,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7674a7a8a7d5f304eafc454d71572f0c, type: 3}
   SoundsNames:
   - ButtonClick
+  prevStage: 0
 --- !u!1 &5136740339904511470
 GameObject:
   m_ObjectHideFlags: 0

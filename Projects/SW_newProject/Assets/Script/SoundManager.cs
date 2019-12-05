@@ -91,6 +91,11 @@ public class SoundManager : MonoBehaviour
                 BGM.volume = 0.5f;
                 prevStage = 3;
             }
+            else if(currScene == "Reward")
+            {
+                ChangeBGM(3);
+                BGM.volume = 0.5f;
+            }
             else if(currScene != "Dungeon1_2" && currScene != "Dungeon2_2" && currScene != "Dungeon3_2" && currScene != "Dungeon3_3")
             {
                 if (BGM.clip != BGMSound[0])
