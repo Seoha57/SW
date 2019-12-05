@@ -263,6 +263,7 @@ public class Character : Entity
         XP = CharacterManager.instance.GetExp(ID);
         XP_required = CharacterManager.instance.GetExpRequried(ID);
         HP = CharacterManager.instance.GetMaxHealth(ID);
+        init_MaxHealth = CharacterManager.instance.GetMaxHealth(ID);
 
         attribute.MaxHealth = CharacterManager.instance.GetMaxHealth(ID);
         attribute.Armor = CharacterManager.instance.GetArmor(ID);

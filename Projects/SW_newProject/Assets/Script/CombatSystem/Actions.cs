@@ -104,6 +104,18 @@ public class Actions : MonoBehaviour
         if (check == null)
             instance.actionEventDic.Add("UseThunder", new ActionEvent());
 
+        instance.actionEventDic.TryGetValue("UseMultyShot1", out check);
+        if (check == null)
+            instance.actionEventDic.Add("UseMultyShot1", new ActionEvent());
+
+        instance.actionEventDic.TryGetValue("UseMultyShot2", out check);
+        if (check == null)
+            instance.actionEventDic.Add("UseMultyShot2", new ActionEvent());
+
+        instance.actionEventDic.TryGetValue("UseMultyShot3", out check);
+        if (check == null)
+            instance.actionEventDic.Add("UseMultyShot3", new ActionEvent());
+
         instance.actionEventDic.TryGetValue("TakeDamage", out check);
         if (check == null)
             instance.actionEventDic.Add("TakeDamage", new ActionEvent());
@@ -404,6 +416,7 @@ public class Actions : MonoBehaviour
 
         if (OGCDTimer[1] <= 0 && playerAlive && enemyAlive)
         {
+            instance.TriggerActionEvent("UseMultyShot1", e);
             instance.TriggerActionEvent("UseSkill", e);
             instance.TriggerActionEvent("TakeDamage", e);
             new WaitForSeconds(1.5f);
@@ -411,22 +424,27 @@ public class Actions : MonoBehaviour
             switch (enemy.Length)
             {
                 case 1:
+                    instance.TriggerActionEvent("UseMultyShot2", e);
                     instance.TriggerActionEvent("TakeDamage", e);
+                    instance.TriggerActionEvent("UseMultyShot3", e);
                     instance.TriggerActionEvent("TakeDamage", e);
                     break;
 
                 case 2:
                     {
+                        instance.TriggerActionEvent("UseMultyShot2", e);
                         instance.TriggerActionEvent("TakeDamage", e);
                         GameObject temp = e.target;
                         if (temp == enemy[0])
                         {
                             e.target = enemy[1];
+                            instance.TriggerActionEvent("UseMultyShot3", e);
                             instance.TriggerActionEvent("TakeDamage", e);
                         }
                         else if (temp == enemy[1])
                         {
                             e.target = enemy[0];
+                            instance.TriggerActionEvent("UseMultyShot3", e);
                             instance.TriggerActionEvent("TakeDamage", e);
                         }
                         e.target = temp;
@@ -447,10 +465,12 @@ public class Actions : MonoBehaviour
 
                         int next = LookLeft(enemy_num);
                         e.target = enemy[next];
+                        instance.TriggerActionEvent("UseMultyShot2", e);
                         instance.TriggerActionEvent("TakeDamage", e);
 
                         next = LookRight(enemy_num);
                         e.target = enemy[next];
+                        instance.TriggerActionEvent("UseMultyShot3", e);
                         instance.TriggerActionEvent("TakeDamage", e);
 
                         e.target = temp;

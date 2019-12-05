@@ -35,7 +35,21 @@ public class ParticleLauncher : MonoBehaviour
         ActionEvent arrowShot = new ActionEvent();
         if (CombatSysMgr.instance.actionEventDic.TryGetValue("UseArrowShot", out arrowShot))
         {
-            arrowShot.AddListener(PhysicalParticle);
+            arrowShot.AddListener(ArrowShotParticle);
+        }
+
+        ActionEvent useMultiShot = new ActionEvent();
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("UseMultyShot1", out useMultiShot))
+        {
+            useMultiShot.AddListener(MultiShotParticle1);
+        }
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("UseMultyShot2", out useMultiShot))
+        {
+            useMultiShot.AddListener(MultiShotParticle2);
+        }
+        if (CombatSysMgr.instance.actionEventDic.TryGetValue("UseMultyShot3", out useMultiShot))
+        {
+            useMultiShot.AddListener(MultiShotParticle3);
         }
     }
 
@@ -94,5 +108,35 @@ public class ParticleLauncher : MonoBehaviour
 
         particleLauncher[8].Emit(1);
         particleLauncher[9].Emit(10);
+    }
+
+    void MultiShotParticle1(Entity e)
+    {
+        Vector3 pos = e.target.GetComponent<Transform>().position;
+        particleLauncher[10].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+        particleLauncher[11].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+
+        particleLauncher[10].Emit(1);
+        particleLauncher[11].Emit(10);
+    }
+
+    void MultiShotParticle2(Entity e)
+    {
+        Vector3 pos = e.target.GetComponent<Transform>().position;
+        particleLauncher[12].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+        particleLauncher[13].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+
+        particleLauncher[12].Emit(1);
+        particleLauncher[13].Emit(10);
+    }
+
+    void MultiShotParticle3(Entity e)
+    {
+        Vector3 pos = e.target.GetComponent<Transform>().position;
+        particleLauncher[14].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+        particleLauncher[15].GetComponent<Transform>().position = new Vector3(pos.x, pos.y - 0.5f, pos.z);
+
+        particleLauncher[14].Emit(1);
+        particleLauncher[15].Emit(10);
     }
 }
