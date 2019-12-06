@@ -1183,10 +1183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 0
+  Armor: 20
   Mana: 0
-  Damage: 15
-  Speed: 0
+  Damage: 25
+  Speed: 20
 --- !u!114 &282816201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
-  HP: 50
+  HP: 200
   attribute: {fileID: 282816200}
   target: {fileID: 248236507}
 --- !u!135 &282816202
@@ -1415,10 +1415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 0
+  Armor: 40
   Mana: 0
-  Damage: 10
-  Speed: 0
+  Damage: 5
+  Speed: 10
 --- !u!114 &307771989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1432,7 +1432,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 13
-  HP: 50
+  HP: 300
   attribute: {fileID: 307771988}
   target: {fileID: 248236507}
 --- !u!135 &307771990
@@ -1671,10 +1671,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 0
+  Armor: 30
   Mana: 0
-  Damage: 20
-  Speed: 0
+  Damage: 15
+  Speed: 10
 --- !u!114 &487316981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11
-  HP: 50
+  HP: 300
   attribute: {fileID: 487316980}
   target: {fileID: 248236507}
 --- !u!135 &487316982
@@ -3045,10 +3045,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 0
+  Armor: 20
   Mana: 0
-  Damage: 10
-  Speed: 0
+  Damage: 30
+  Speed: 10
 --- !u!114 &1039579092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3062,7 +3062,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 12
-  HP: 50
+  HP: 150
   attribute: {fileID: 1039579091}
   target: {fileID: 248236507}
 --- !u!135 &1039579093
@@ -4329,10 +4329,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 0
+  Armor: 20
   Mana: 0
-  Damage: 10
-  Speed: 0
+  Damage: 20
+  Speed: 20
 --- !u!114 &1781762200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4346,7 +4346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 14
-  HP: 50
+  HP: 200
   attribute: {fileID: 1781762199}
   target: {fileID: 248236507}
 --- !u!135 &1781762201
