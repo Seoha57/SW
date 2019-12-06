@@ -10,7 +10,7 @@ public class Actions : MonoBehaviour
 
     public int comboCount = 3;
     private static int tempComboCount = 0;
-    private static float GCD = 3.0f;
+    private static float GCD = 2.0f;
     private static float GCDTimer = 0;
     private static float[] OGCD;
     private static float[] OGCDTimer;
