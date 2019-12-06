@@ -312,6 +312,7 @@ public class Actions : MonoBehaviour
     void DealBasicDamage(Entity e)
     {
         damage = actionHelper.DamageMod(e, AttackType.PHYSICAL);
+        Debug.Log(damage);
         if (e.ID < 10 && !comboAttacking)
         {
             if (OGCDTimer[0] <= 0 && (playerAlive && enemyAlive))
@@ -328,8 +329,6 @@ public class Actions : MonoBehaviour
                 {
                     instance.TriggerActionEvent("UseFire", e);
                 }
-
-                instance.TriggerActionEvent("UseSkill", e);
                 instance.TriggerActionEvent("TakeDamage", e);
                 instance.TriggerActionEvent("OGCD1_Init", e);
                 OGCDTimer[0] = OGCD[0];

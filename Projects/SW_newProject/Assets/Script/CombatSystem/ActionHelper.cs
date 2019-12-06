@@ -13,29 +13,11 @@ public class ActionHelper : MonoBehaviour
         if (type == AttackType.PHYSICAL)
         {
             calculated_damage = e.attribute.Damage;
-            //calculated_damage = IsCriticalHit(e, calculated_damage);
-            calculated_damage = calculated_damage - (e.attribute.Damage * e.target.GetComponent<Entity>().attribute.Armor / 100.0f);
+            Debug.Log(calculated_damage);
+            calculated_damage = calculated_damage - Mathf.Min(calculated_damage, (e.attribute.Damage * e.target.GetComponent<Entity>().attribute.Armor / 100.0f));
         }
-        //if (type == AttackType.ELEMENTAL)
-        //{
-        //    calculated_damage = e.attribute.ElemetalDamage;
-        //    calculated_damage = IsCriticalHit(e, calculated_damage);
-        //    calculated_damage = calculated_damage - (e.attribute.PhysicalDamage * e.target.GetComponent<Entity>().attribute.AfflictionResistance / 100.0f);
-        //}
-
         return calculated_damage;
     }
-
-    //private float IsCriticalHit(Entity e, float damage)
-    //{
-    //    if (Random.Range(0, 100.0f) <= e.attribute.CriticalChance)
-    //    {
-    //        Debug.Log("Critical Hit!!");
-    //        damage = damage + damage * (e.attribute.CriticalDamage / 100.0f);
-    //    }
-
-    //    return damage;
-    //}
 
     public float CoolTimeMod(Entity e, float coolTime)
     {
