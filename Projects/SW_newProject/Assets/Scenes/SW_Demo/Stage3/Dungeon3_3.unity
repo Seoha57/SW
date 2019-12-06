@@ -1183,10 +1183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 20
+  Armor: 10
   Mana: 0
   Damage: 25
-  Speed: 20
+  Speed: 10
 --- !u!114 &282816201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,10 +1415,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 40
+  Armor: 30
   Mana: 0
   Damage: 5
-  Speed: 10
+  Speed: 0
 --- !u!114 &307771989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1671,10 +1671,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 30
+  Armor: 20
   Mana: 0
   Damage: 15
-  Speed: 10
+  Speed: 0
 --- !u!114 &487316981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3045,10 +3045,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 20
+  Armor: 5
   Mana: 0
   Damage: 30
-  Speed: 10
+  Speed: 5
 --- !u!114 &1039579092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4329,10 +4329,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 20
+  Armor: 10
   Mana: 0
   Damage: 20
-  Speed: 20
+  Speed: 10
 --- !u!114 &1781762200
 MonoBehaviour:
   m_ObjectHideFlags: 0
