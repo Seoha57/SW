@@ -105,28 +105,28 @@ public class Character : Entity
         CharacterManager.instance.SetExpRequired(ID, 100);
         if(ID == 0)
         {
-            CharacterManager.instance.SetMaxHealth(ID, 100);
-            CharacterManager.instance.SetArmor(ID, 10);
-            CharacterManager.instance.SetMana(ID, 10);
-            CharacterManager.instance.SetDamage(ID, 10);
-            CharacterManager.instance.SetSpeed(ID, 10);
-        }
-   
-        else if (ID == 1)
-        {
             CharacterManager.instance.SetMaxHealth(ID, 200);
             CharacterManager.instance.SetArmor(ID, 10);
             CharacterManager.instance.SetMana(ID, 10);
             CharacterManager.instance.SetDamage(ID, 10);
+            CharacterManager.instance.SetSpeed(ID, 5);
+        }
+   
+        else if (ID == 1)
+        {
+            CharacterManager.instance.SetMaxHealth(ID, 150);
+            CharacterManager.instance.SetArmor(ID, 5);
+            CharacterManager.instance.SetMana(ID, 10);
+            CharacterManager.instance.SetDamage(ID, 15);
             CharacterManager.instance.SetSpeed(ID, 10);
         }
 
         else if (ID == 2)
         {
-            CharacterManager.instance.SetMaxHealth(ID, 300);
-            CharacterManager.instance.SetArmor(ID, 10);
+            CharacterManager.instance.SetMaxHealth(ID, 100);
+            CharacterManager.instance.SetArmor(ID, 0);
             CharacterManager.instance.SetMana(ID, 10);
-            CharacterManager.instance.SetDamage(ID, 10);
+            CharacterManager.instance.SetDamage(ID, 20);
             CharacterManager.instance.SetSpeed(ID, 10);
         }
 

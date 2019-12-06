@@ -115,10 +115,10 @@ MonoBehaviour:
   AD: {fileID: 5070079424179827466}
   user: {fileID: 1872320041248675649, guid: 7c1592cb6224cb94c99892f6d27c4e12, type: 3}
   Name: Warrior
-  attributePoint: 15
-  Level: 3
+  attributePoint: 5
+  Level: 1
   XP: 0
-  XP_required: 400
+  XP_required: 100
   FlatPoint: 10
   items:
   - {fileID: 0}
@@ -164,8 +164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 757f16ef9c4e4eb45873524b2360645e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 206
-  Armor: 118
-  Mana: 110
-  Damage: 110
-  Speed: 110
+  MaxHealth: 100
+  Armor: 100
+  Mana: 10
+  Damage: 10
+  Speed: 10
