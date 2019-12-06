@@ -55,6 +55,7 @@ public class Actions : MonoBehaviour
         OGCD[0] = 3.0f;
         OGCD[1] = 6.0f;
         OGCD[2] = 5.0f;
+        GCD = 2.0f;
 
         coolTimeInit = false;
 

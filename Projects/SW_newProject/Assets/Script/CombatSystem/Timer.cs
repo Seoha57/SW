@@ -63,8 +63,6 @@ public class Timer : MonoBehaviour
         {
             maxTime = Actions.GetOGCDDuration(SkillNum);
             timeLeft = maxTime;
-
-            Debug.Log(maxTime);
             isFirst = false;
         }
 
