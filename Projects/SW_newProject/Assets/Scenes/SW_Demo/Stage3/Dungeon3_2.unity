@@ -1456,7 +1456,7 @@ MonoBehaviour:
   Armor: 15
   Mana: 0
   Damage: 10
-  Speed: 15
+  Speed: 10
 --- !u!114 &569445816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3955,7 +3955,7 @@ MonoBehaviour:
   Armor: 20
   Mana: 0
   Damage: 10
-  Speed: 5
+  Speed: 0
 --- !u!114 &1595354582
 MonoBehaviour:
   m_ObjectHideFlags: 0
