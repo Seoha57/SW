@@ -3659,16 +3659,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 627542262}
-    - target: {fileID: 1574544965197731534, guid: 5daf31ba6cb791e4c89c3b238ae76b8c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1574544965925448043, guid: 5daf31ba6cb791e4c89c3b238ae76b8c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1574544965925448045, guid: 5daf31ba6cb791e4c89c3b238ae76b8c,
         type: 3}
       propertyPath: m_Enabled
@@ -3678,6 +3668,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574544965197731534, guid: 5daf31ba6cb791e4c89c3b238ae76b8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1574544965925448043, guid: 5daf31ba6cb791e4c89c3b238ae76b8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5daf31ba6cb791e4c89c3b238ae76b8c, type: 3}
@@ -3813,6 +3813,11 @@ PrefabInstance:
       propertyPath: particleLauncher
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2002842641910461097, guid: 813622967fe60494f98a87e8f4be2e6e,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2002842640503338337, guid: 813622967fe60494f98a87e8f4be2e6e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -3827,11 +3832,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2002842641910461097, guid: 813622967fe60494f98a87e8f4be2e6e,
-        type: 3}
-      propertyPath: m_Text
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 813622967fe60494f98a87e8f4be2e6e, type: 3}
@@ -4058,16 +4058,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5285991687912474056, guid: 657b196d0acea334bb69262956123807,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5285991688894222190, guid: 657b196d0acea334bb69262956123807,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5285991688894221968, guid: 657b196d0acea334bb69262956123807,
         type: 3}
       propertyPath: m_Text
@@ -4107,6 +4097,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FontData.m_VerticalOverflow
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285991687912474056, guid: 657b196d0acea334bb69262956123807,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285991688894222190, guid: 657b196d0acea334bb69262956123807,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5285991688894221969, guid: 657b196d0acea334bb69262956123807,
         type: 3}
