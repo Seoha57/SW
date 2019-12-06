@@ -24,6 +24,8 @@ public class Actions : MonoBehaviour
     bool playerAlive = true;
     bool enemyAlive = true;
 
+    bool isFirst = true;
+
     static int enemyDieCount;
     bool comboAttacking = false;
 
@@ -53,13 +55,7 @@ public class Actions : MonoBehaviour
         OGCD[1] = 6.0f;
         OGCD[2] = 5.0f;
 
-        actionHelper.CoolTimeMod(player[0].GetComponent<Entity>(), OGCD[0]);
-        actionHelper.CoolTimeMod(player[0].GetComponent<Entity>(), OGCD[2]);
-        actionHelper.CoolTimeMod(player[0].GetComponent<Entity>(), GCD);
-        if (player[0].GetComponent<Entity>().ID == 0)
-            OGCD[1] = GCD * 3;
-        else
-            actionHelper.CoolTimeMod(player[1].GetComponent<Entity>(), OGCD[1]);
+        isFirst = true;
 
         enemyDieCount = 0;
 
@@ -70,6 +66,7 @@ public class Actions : MonoBehaviour
 
     private void OnDisable()
     {
+        isFirst = false;
         tempComboCount = 0;
         GCDTimer = 0;
         for (int i = 0; i < OGCDTimer.Length; ++i)
@@ -282,6 +279,18 @@ public class Actions : MonoBehaviour
 
     private void Update()
     {
+        if(isFirst)
+        {
+            OGCD[0] = actionHelper.CoolTimeMod(player[0].GetComponent<Entity>(), OGCD[0]);
+            OGCD[2] = actionHelper.CoolTimeMod(player[0].GetComponent<Entity>(), OGCD[2]);
+            GCD = actionHelper.CoolTimeMod(player[0].GetComponent<Entity>(), GCD);
+            if (player[0].GetComponent<Entity>().ID == 0)
+                OGCD[1] = GCD * 3;
+            else
+                actionHelper.CoolTimeMod(player[1].GetComponent<Entity>(), OGCD[1]);
+            isFirst = false;
+        }
+
         if (OGCDTimer[0] > 0)
             OGCDTimer[0] -= Time.deltaTime;
         if (OGCDTimer[1] > 0)
@@ -312,7 +321,6 @@ public class Actions : MonoBehaviour
     void DealBasicDamage(Entity e)
     {
         damage = actionHelper.DamageMod(e, AttackType.PHYSICAL);
-        Debug.Log(damage);
         if (e.ID < 10 && !comboAttacking)
         {
             if (OGCDTimer[0] <= 0 && (playerAlive && enemyAlive))
@@ -497,7 +505,8 @@ public class Actions : MonoBehaviour
 
     void SelfHeal(Entity e)
     {
-        recoveryValue = 5.0f;
+        recoveryValue = actionHelper.HealPointMod(e);
+
         if (!comboAttacking)
         {
             if (OGCDTimer[2] <= 0 && playerAlive && enemyAlive)

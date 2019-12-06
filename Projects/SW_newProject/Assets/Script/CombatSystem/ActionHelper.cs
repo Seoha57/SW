@@ -13,7 +13,6 @@ public class ActionHelper : MonoBehaviour
         if (type == AttackType.PHYSICAL)
         {
             calculated_damage = e.attribute.Damage;
-            Debug.Log(calculated_damage);
             calculated_damage = calculated_damage - Mathf.Min(calculated_damage, (e.attribute.Damage * e.target.GetComponent<Entity>().attribute.Armor / 100.0f));
         }
         return calculated_damage;
@@ -24,7 +23,16 @@ public class ActionHelper : MonoBehaviour
         float mod_GCD = coolTime;
 
         mod_GCD -= coolTime * (e.attribute.Speed / 100.0f);
+        if (mod_GCD < 0)
+            mod_GCD = 0;
 
         return mod_GCD;
+    }
+
+    public float HealPointMod(Entity e)
+    {
+        float point = 5 + 5 * (e.attribute.Mana / 10.0f);
+
+        return point;
     }
 }
