@@ -1455,7 +1455,7 @@ MonoBehaviour:
   MaxHealth: 0
   Armor: 15
   Mana: 0
-  Damage: 10
+  Damage: 5
   Speed: 10
 --- !u!114 &569445816
 MonoBehaviour:
@@ -4905,7 +4905,7 @@ MonoBehaviour:
   MaxHealth: 0
   Armor: 5
   Mana: 0
-  Damage: 30
+  Damage: 20
   Speed: 5
 --- !u!114 &1918941156
 MonoBehaviour:
@@ -5123,9 +5123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 20
+  Armor: 10
   Mana: 0
-  Damage: 15
+  Damage: 10
   Speed: 10
 --- !u!114 &2041986260
 MonoBehaviour:
