@@ -1279,9 +1279,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 5
+  Armor: 20
   Mana: 0
-  Damage: 10
+  Damage: 15
   Speed: 0
 --- !u!114 &1064192323
 MonoBehaviour:
@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
-  HP: 100
+  HP: 150
   attribute: {fileID: 1064192322}
   target: {fileID: 1991965301}
 --- !u!135 &1064192324

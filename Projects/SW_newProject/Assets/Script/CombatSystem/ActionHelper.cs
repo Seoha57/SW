@@ -20,13 +20,13 @@ public class ActionHelper : MonoBehaviour
 
     public float CoolTimeMod(Entity e, float coolTime)
     {
-        float mod_GCD = coolTime;
+        float mod_cool = coolTime;
 
-        mod_GCD -= coolTime * (e.attribute.Speed / 100.0f);
-        if (mod_GCD < 0)
-            mod_GCD = 0;
+        mod_cool -= coolTime * (e.attribute.Speed / 100.0f);
+        if (mod_cool < 0)
+            mod_cool = 0;
 
-        return mod_GCD;
+        return mod_cool;
     }
 
     public float HealPointMod(Entity e)

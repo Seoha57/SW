@@ -9,13 +9,12 @@ public class Timer : MonoBehaviour
     float maxTime;
     float timeLeft;
     public int SkillNum;
+    bool isFirst = true;
 
     // Start is called before the first frame update
     void Start()
     {
         timerbar = GetComponent<Image>();
-        maxTime = Actions.GetOGCDDuration(SkillNum);
-        timeLeft = maxTime;
 
         ActionEvent timeReset = new ActionEvent();
         if (SkillNum == 0)
@@ -60,7 +59,16 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeLeft > 0)
+        if(isFirst && Actions.coolTimeInit)
+        {
+            maxTime = Actions.GetOGCDDuration(SkillNum);
+            timeLeft = maxTime;
+
+            Debug.Log(maxTime);
+            isFirst = false;
+        }
+
+        if(timeLeft >= 0)
         {
             timeLeft -= Time.deltaTime;
             timerbar.fillAmount = timeLeft / maxTime;
