@@ -12,6 +12,7 @@ public class HP : MonoBehaviour
     void Update()
     {
         m_text.text = owner.GetComponent<Entity>().HP.ToString();
+        m_text.color = Color.magenta;
         if (!owner.activeSelf)
         {
             m_text.gameObject.SetActive(false);

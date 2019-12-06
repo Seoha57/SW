@@ -22,7 +22,7 @@ public class ActionHelper : MonoBehaviour
     {
         float mod_cool = coolTime;
 
-        mod_cool -= coolTime * (e.attribute.Speed / 100.0f);
+        mod_cool -= coolTime * (e.attribute.Speed / 200.0f);
         if (mod_cool < 0)
             mod_cool = 0;
 
@@ -31,7 +31,7 @@ public class ActionHelper : MonoBehaviour
 
     public float HealPointMod(Entity e)
     {
-        float point = 5 + 5 * (e.attribute.Mana / 10.0f);
+        float point = 5 + 5 * (e.attribute.Mana / 100.0f);
 
         return point;
     }

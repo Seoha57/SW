@@ -50,7 +50,7 @@ public class DamageSpawn : MonoBehaviour
             m_text.gameObject.SetActive(true);
             m_text.text = Actions.GetPhysicalDamage().ToString();
             m_text.fontStyle = FontStyle.Normal;
-            m_text.color = new Color(0, 0, 0);
+            m_text.color = new Color(245, 165, 67);
             timer = 0;
         }
     }
