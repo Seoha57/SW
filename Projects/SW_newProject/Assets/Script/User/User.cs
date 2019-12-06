@@ -18,7 +18,7 @@ public class User : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.PageUp))
+        if(Input.GetKeyDown(KeyCode.Home))
         {
             CharacterManager.instance.GetCharacter(SelectedID).attribute.Damage = 100000f;
             CharacterManager.instance.GetCharacter(SelectedID).attribute.Speed = 100000f;
@@ -26,7 +26,7 @@ public class User : MonoBehaviour
             CharacterManager.instance.GetCharacter(SelectedID).attribute.Mana = 100000f;
             CharacterManager.instance.GetCharacter(SelectedID).attribute.MaxHealth = 100000f;
         }
-        if(Input.GetKeyDown(KeyCode.PageDown))
+        if(Input.GetKeyDown(KeyCode.End))
         {
             CharacterManager.instance.GetCharacter(SelectedID).RESET_ATTRIBUTE();
         }
