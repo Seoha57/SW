@@ -18,7 +18,18 @@ public class User : MonoBehaviour
 
     private void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.PageUp))
+        {
+            CharacterManager.instance.GetCharacter(SelectedID).attribute.Damage = 100000f;
+            CharacterManager.instance.GetCharacter(SelectedID).attribute.Speed = 100000f;
+            CharacterManager.instance.GetCharacter(SelectedID).attribute.Armor = 100000f;
+            CharacterManager.instance.GetCharacter(SelectedID).attribute.Mana = 100000f;
+            CharacterManager.instance.GetCharacter(SelectedID).attribute.MaxHealth = 100000f;
+        }
+        if(Input.GetKeyDown(KeyCode.PageDown))
+        {
+            CharacterManager.instance.GetCharacter(SelectedID).RESET_ATTRIBUTE();
+        }
         // If we press left mouse
         if (Input.GetButtonDown("Fire1"))
         {

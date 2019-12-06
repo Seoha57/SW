@@ -61,7 +61,7 @@ public class ItemGenerate : MonoBehaviour
     }
     public void BuyEpicItem()
     {
-        if (user.Gold < 5.00)
+        if (user.Gold < 5000)
             return;
         rand_epic_item.rarity = Rarity.Epic;
         rand_epic_item.Adapting();

@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focus: {fileID: 0}
-  Gold: 312500
-  Gem: 993999
+  Gold: 0
+  Gem: 0
   characterManager: {fileID: 2075096460}
   inventory: {fileID: 2075096461}
   SelectedID: 0

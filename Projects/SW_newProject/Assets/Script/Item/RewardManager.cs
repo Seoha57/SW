@@ -27,10 +27,11 @@ public class RewardManager : MonoBehaviour
     private Item rand_item;
     int ID = 0;
 
-    private void Awake()
+    private void Start()
     {
         soundMgr = GameObject.Find("SoundManager");
         SM = soundMgr.GetComponent<SoundManager>();
+        prevStage = SM.prevStage;
         ID = user.SelectedID;
         if(instance == null)
         {
@@ -38,7 +39,7 @@ public class RewardManager : MonoBehaviour
             RandomSpawn();
             gold = Random.Range(20, 100);
         }
-        prevStage = SM.prevStage;
+
     }
     
     public Item GetRandomItem()
@@ -56,6 +57,25 @@ public class RewardManager : MonoBehaviour
     public void Prob()
     {
         float rand = Random.Range(1, 100000f) / 100000f;
+        switch (prevStage)
+        {
+            case 1:
+                //legendary_prob = 1.0f;
+                break;
+            case 2:
+                epic_prob = 0.3f;
+                legendary_prob = 0.1f;
+                break;
+            case 3:
+                rare_prob = 0.9f;
+                epic_prob = 0.6f;
+                legendary_prob = 0.3f;
+                break;
+
+            default:
+                break;
+        }
+
         if (rand < legendary_prob)
         {
             rand_item.rarity = Rarity.Legendary;
