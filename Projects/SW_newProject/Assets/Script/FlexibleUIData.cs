@@ -28,4 +28,9 @@ public class FlexibleUIData : ScriptableObject
     public Color type5Color;
     public Sprite type5Icon;
 
+    public Color QuitColor;
+    public Sprite QuitIcon;
+
+    public Color CancelColor;
+    public Sprite CancelIcon;
 }
