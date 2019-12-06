@@ -46,6 +46,7 @@ public class Actions : MonoBehaviour
         for (int i = 0; i < enemy.Length; ++i)
         {
             EnemyAttackCooltime[i] = 5.0f + Random.Range(-2, 2);
+            EnemyAttackCooltime[i] -= EnemyAttackCooltime[i] * (enemy[i].GetComponent<Attributes>().Speed / 100.0f);
         }
 
         /*Temp CoolTime*/

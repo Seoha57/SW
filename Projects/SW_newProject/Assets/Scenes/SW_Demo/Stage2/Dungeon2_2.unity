@@ -1860,10 +1860,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 0
+  Armor: 5
   Mana: 0
   Damage: 20
-  Speed: 0
+  Speed: 10
 --- !u!114 &878691020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 11
-  HP: 50
+  HP: 200
   attribute: {fileID: 878691019}
   target: {fileID: 1501104943}
 --- !u!135 &878691021
@@ -3700,10 +3700,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  Armor: 0
+  Armor: 10
   Mana: 0
   Damage: 15
-  Speed: 0
+  Speed: 10
 --- !u!114 &2140463818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3717,7 +3717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 10
-  HP: 50
+  HP: 200
   attribute: {fileID: 2140463817}
   target: {fileID: 1501104943}
 --- !u!135 &2140463819
