@@ -22,7 +22,6 @@ public class RewardManager : MonoBehaviour
     public float rare_prob;
     public float epic_prob;
     public float legendary_prob;
-
     
     private Item rand_item;
     int ID = 0;
@@ -39,7 +38,7 @@ public class RewardManager : MonoBehaviour
             RandomSpawn();
             gold = Random.Range(20, 100);
         }
-
+        Time.timeScale = 1.0f;
     }
     
     public Item GetRandomItem()

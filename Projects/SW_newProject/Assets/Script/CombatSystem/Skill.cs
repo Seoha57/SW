@@ -40,6 +40,7 @@ public class Skill : MonoBehaviour
         actionName = owner.GetComponent<Character>().Skills[skill_no];
         m_text.text = actionName;
         m_text.color = new Color(255, 255, 255);
+        m_text.fontSize = 12;
     }
 
     public void FireAction()
