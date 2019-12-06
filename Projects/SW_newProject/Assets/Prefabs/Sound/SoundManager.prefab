@@ -155,7 +155,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 021f93349caa4f34dadf32b5524c1334, type: 3}
   - {fileID: 8300000, guid: 631cf410616ef4a4d838a033dc4327d2, type: 3}
   - {fileID: 8300000, guid: 781438391db88f0439fe3f85c4860f44, type: 3}
-  - {fileID: 8300000, guid: 781438391db88f0439fe3f85c4860f44, type: 3}
+  - {fileID: 8300000, guid: a194f108e79180e48bc008413ecd5283, type: 3}
   BGMName:
   - MainMenu
   - Stage1
