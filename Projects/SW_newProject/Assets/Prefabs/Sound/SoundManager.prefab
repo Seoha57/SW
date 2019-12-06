@@ -155,11 +155,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 021f93349caa4f34dadf32b5524c1334, type: 3}
   - {fileID: 8300000, guid: 631cf410616ef4a4d838a033dc4327d2, type: 3}
   - {fileID: 8300000, guid: 781438391db88f0439fe3f85c4860f44, type: 3}
+  - {fileID: 8300000, guid: 781438391db88f0439fe3f85c4860f44, type: 3}
   BGMName:
   - MainMenu
   - Stage1
   - Stage2
   - Reward
+  - Stage3
   soundEffectChannel:
   - {fileID: 5136740340686776105}
   - {fileID: 5136740340720206316}

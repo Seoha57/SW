@@ -87,7 +87,7 @@ public class SoundManager : MonoBehaviour
             }
             else if (currScene == "Dungeon3_1")
             {
-                ChangeBGM(1);
+                ChangeBGM(4);
                 BGM.volume = 0.5f;
                 prevStage = 3;
             }
