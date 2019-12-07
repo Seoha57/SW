@@ -10,16 +10,24 @@ public class HPbar : MonoBehaviour
     float maxHP;
     float HPLeft;
 
+    bool isFirst = true;
+
     private void Start()
     {
+        isFirst = true;
         HPBar = GetComponent<Image>();
-        maxHP = owner.GetComponent<Entity>().HP;
-        HPLeft = maxHP;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(isFirst)
+        {
+            maxHP = owner.GetComponent<Entity>().HP;
+            HPLeft = maxHP;
+            isFirst = false;
+        }
+
         if (!owner.activeSelf)
         {
             HPBar.gameObject.SetActive(false);
