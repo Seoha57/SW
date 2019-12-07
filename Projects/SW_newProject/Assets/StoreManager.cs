@@ -37,31 +37,38 @@ public class StoreManager : MonoBehaviour
 
 
     }
-    private void Update()
-    {
-        
-    }
-
-    public void UnlockArcher()
+    public void BuyWizard()
     {
         if (user.Gold < 10000)
             return;
+        UnlockWizard();
+        user.Gold -= 10000;
+    }
+    public void BuyArcher()
+    {
+        if (user.Gold < 10000)
+            return;
+        UnlockArcher();
+        user.Gold -= 10000;
+    }
+    public void UnlockArcher()
+    {
+ 
         UnlockArcherImage.SetActive(true);
         LockArcherImage.SetActive(false);
         ArcherParticle.SetActive(true);
         user.Archer = true;
-        user.Gold -= 10000;
+  
 
     }
     public void UnlockWizard()
     {
-        if (user.Gold < 10000)
-            return;
+
         UnlockWizardImage.SetActive(true);
         LockWizardImage.SetActive(false);
         WizardParticle.SetActive(true);
         user.Wizard = true;
-        user.Gold -= 10000;
+
     }
 
     public void LockArcher()
