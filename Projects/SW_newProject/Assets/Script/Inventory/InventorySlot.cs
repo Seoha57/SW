@@ -15,10 +15,9 @@ public class InventorySlot : MonoBehaviour
     public GameObject removeObject;
 
     public Image ButtonColor;
-    public FlexibleUIButton flexibleButton;
 
     public InventoryUI inventoryUI;
-
+    public Button button;
     bool onclick = false;
     int ID =0;
 
@@ -42,22 +41,22 @@ public class InventorySlot : MonoBehaviour
         switch (item.rarity)
         {
             case Rarity.Normal:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
+                button.GetComponent<Image>().color = ItemColor.NormalColor;
                 break;
             case Rarity.Rare:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type2;
+                button.GetComponent<Image>().color = ItemColor.RareColor;
                 break;
             case Rarity.Epic:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type3;
+                button.GetComponent<Image>().color = ItemColor.EpicColor;
                 break;
             case Rarity.Legendary:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type4;
+                button.GetComponent<Image>().color = ItemColor.LegendColor;
                 break;
             case Rarity.Hidden:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type5;
+                button.GetComponent<Image>().color = ItemColor.HiddenColor;
                 break;
             default:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
+                button.GetComponent<Image>().color = ItemColor.NormalColor;
                 break;
         }
 
@@ -71,7 +70,7 @@ public class InventorySlot : MonoBehaviour
         removeButton.interactable = false;
         removeObject.SetActive(false);
 
-        flexibleButton.buttontype = FlexibleUIButton.ButtonType.Defalut;
+        button.GetComponent<Image>().color = ItemColor.NormalColor;
         InfoUse(false);
     }
     public void OnRemoveButton()

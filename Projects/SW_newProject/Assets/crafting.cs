@@ -25,7 +25,7 @@ public class crafting : MonoBehaviour
     public Transform itemsParent;
 
     public GameObject UpgradeButton;
-    public FlexibleUIButton Result;
+    public Button button;
     public Image icon;
 
 
@@ -113,23 +113,23 @@ public class crafting : MonoBehaviour
         switch (newItem.rarity)
         {
             case Rarity.Normal:
-                Result.buttontype = FlexibleUIButton.ButtonType.Type2;
+                button.GetComponent<Image>().color = ItemColor.RareColor;
                 ResultRarity = Rarity.Rare;
                 break;
             case Rarity.Rare:
-                Result.buttontype = FlexibleUIButton.ButtonType.Type3;
+                button.GetComponent<Image>().color = ItemColor.EpicColor;
                 ResultRarity = Rarity.Epic;
                 break;
             case Rarity.Epic:
-                Result.buttontype = FlexibleUIButton.ButtonType.Type4;
+                button.GetComponent<Image>().color = ItemColor.LegendColor;
                 ResultRarity = Rarity.Legendary;
                 break;
             case Rarity.Legendary:
-                Result.buttontype = FlexibleUIButton.ButtonType.Type5;
+                button.GetComponent<Image>().color = ItemColor.HiddenColor;
                 ResultRarity = Rarity.Hidden;
                 break;
             default:
-                Result.buttontype = FlexibleUIButton.ButtonType.Type1;
+                button.GetComponent<Image>().color = ItemColor.NormalColor;
                 break;
         }
 
@@ -139,7 +139,7 @@ public class crafting : MonoBehaviour
     {
         icon.sprite = null;
         icon.enabled = false;
-        Result.buttontype = FlexibleUIButton.ButtonType.Defalut;
+        button.GetComponent<Image>().color = ItemColor.NormalColor;
     }
 
 

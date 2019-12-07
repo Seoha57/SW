@@ -1983,7 +1983,6 @@ MonoBehaviour:
   soundMgr: {fileID: 0}
   prevStage: 0
   icon: {fileID: 1658041553}
-  flexibleButton: {fileID: 1590654771}
   items:
   - {fileID: 11400000, guid: b215aacd49015164ab8d228cb58a68ac, type: 2}
   - {fileID: 11400000, guid: 8e86fc66ca8cf5e4b84ee0eb4845c4af, type: 2}
@@ -2001,6 +2000,7 @@ MonoBehaviour:
   rare_prob: 0.5
   epic_prob: 0.1
   legendary_prob: 0.01
+  button: {fileID: 1590654772}
 --- !u!4 &1199051788
 Transform:
   m_ObjectHideFlags: 0
@@ -2376,7 +2376,6 @@ GameObject:
   - component: {fileID: 1590654770}
   - component: {fileID: 1590654769}
   - component: {fileID: 1590654772}
-  - component: {fileID: 1590654771}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -2442,20 +2441,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590654767}
   m_CullTransparentMesh: 0
---- !u!114 &1590654771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590654767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 394e54943fdcf83438ea74c048c4cf63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skinData: {fileID: 11400000, guid: ce3d25ff07e519f44aeb54af1072e28f, type: 2}
-  buttontype: 0
 --- !u!114 &1590654772
 MonoBehaviour:
   m_ObjectHideFlags: 0

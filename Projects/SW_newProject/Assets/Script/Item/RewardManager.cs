@@ -11,7 +11,8 @@ public class RewardManager : MonoBehaviour
     public static RewardManager instance;
 
     public Image icon;
-    public FlexibleUIButton flexibleButton;
+
+
     public List<Item> items = new List<Item>();
 
     public User user;
@@ -22,7 +23,7 @@ public class RewardManager : MonoBehaviour
     public float rare_prob;
     public float epic_prob;
     public float legendary_prob;
-    
+    public Button button;
     private Item rand_item;
     int ID = 0;
 
@@ -30,6 +31,7 @@ public class RewardManager : MonoBehaviour
     {
         soundMgr = GameObject.Find("SoundManager");
         SM = soundMgr.GetComponent<SoundManager>();
+        
         prevStage = SM.prevStage;
         ID = user.SelectedID;
         if(instance == null)
@@ -78,7 +80,7 @@ public class RewardManager : MonoBehaviour
         if (rand < legendary_prob)
         {
             rand_item.rarity = Rarity.Legendary;
-            flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type4;
+            button.GetComponent<Image>().color = ItemColor.LegendColor;
 
 
 
@@ -86,19 +88,20 @@ public class RewardManager : MonoBehaviour
         else if (rand > legendary_prob && rand < epic_prob)
         {
             rand_item.rarity = Rarity.Epic;
-            flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type3;
+            button.GetComponent<Image>().color = ItemColor.EpicColor;
 
         }
         else if (rand > epic_prob && rand < rare_prob)
         {
             rand_item.rarity = Rarity.Rare;
-            flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type2;
+     
+            button.GetComponent<Image>().color = ItemColor.RareColor;
 
         }
         else
         {
             rand_item.rarity = Rarity.Normal;
-            flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
+            button.GetComponent<Image>().color = ItemColor.NormalColor;
         }
 
         rand_item.Adapting();

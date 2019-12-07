@@ -15,7 +15,7 @@ public class EquipInfo : MonoBehaviour
     public Text ManaModifier;
     public Text DamageModifier;
     public Text SpeedModifier;
-    public FlexibleUIButton infobox;
+    public Button button;
 
     private int ID;
     private void Start()
@@ -39,22 +39,22 @@ public class EquipInfo : MonoBehaviour
             switch (inventoryUI.slots[ID].item.rarity)
             {
                 case Rarity.Normal:
-                    infobox.buttontype = FlexibleUIButton.ButtonType.Type1;
+                    button.GetComponent<Image>().color = ItemColor.NormalColor;
                     break;
                 case Rarity.Rare:
-                    infobox.buttontype = FlexibleUIButton.ButtonType.Type2;
+                    button.GetComponent<Image>().color = ItemColor.RareColor;
                     break;
                 case Rarity.Epic:
-                    infobox.buttontype = FlexibleUIButton.ButtonType.Type3;
+                    button.GetComponent<Image>().color = ItemColor.EpicColor;
                     break;
                 case Rarity.Legendary:
-                    infobox.buttontype = FlexibleUIButton.ButtonType.Type4;
+                    button.GetComponent<Image>().color = ItemColor.LegendColor;
                     break;
                 case Rarity.Hidden:
-                    infobox.buttontype = FlexibleUIButton.ButtonType.Type5;
+                    button.GetComponent<Image>().color = ItemColor.HiddenColor;
                     break;
                 default:
-                    infobox.buttontype = FlexibleUIButton.ButtonType.Type1;
+                    button.GetComponent<Image>().color = ItemColor.NormalColor;
                     break;
             }
           

@@ -50,7 +50,7 @@ MonoBehaviour:
   Gem: 200
   characterManager: {fileID: 2075096460}
   inventory: {fileID: 2075096461}
-  SelectedID: 1
+  SelectedID: 0
   Warrior: 1
   Archer: 0
   Wizard: 0

@@ -54,7 +54,7 @@ MonoBehaviour:
   removeButton: {fileID: 2848980635059349289}
   removeObject: {fileID: 3826616572765057821}
   item: {fileID: 0}
-  flexibleButton: {fileID: 6107898966759076729}
+  button: {fileID: 6107898966759076730}
   isSelected: 0
   id: 0
 --- !u!1 &2885226627488632019
@@ -439,7 +439,6 @@ GameObject:
   - component: {fileID: 6107898966759076735}
   - component: {fileID: 6107898966759076734}
   - component: {fileID: 6107898966759076730}
-  - component: {fileID: 6107898966759076729}
   m_Layer: 5
   m_Name: EquipButton
   m_TagString: Untagged
@@ -551,17 +550,3 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &6107898966759076729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6107898966759076732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 394e54943fdcf83438ea74c048c4cf63, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skinData: {fileID: 11400000, guid: ce3d25ff07e519f44aeb54af1072e28f, type: 2}
-  buttontype: 0

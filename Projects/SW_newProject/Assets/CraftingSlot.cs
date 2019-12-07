@@ -7,7 +7,7 @@ public class CraftingSlot : MonoBehaviour
     public Button removeButton;
     public GameObject removeObject;
     public Item item;
-    public FlexibleUIButton flexibleButton;
+    public Button button;
 
     public bool isSelected = false;
     int index;
@@ -25,19 +25,22 @@ public class CraftingSlot : MonoBehaviour
         switch (item.rarity)
         {
             case Rarity.Normal:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
+                button.GetComponent<Image>().color = ItemColor.NormalColor;
                 break;
             case Rarity.Rare:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type2;
+                button.GetComponent<Image>().color = ItemColor.RareColor;
                 break;
             case Rarity.Epic:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type3;
+                button.GetComponent<Image>().color = ItemColor.EpicColor;
                 break;
             case Rarity.Legendary:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type4;
+                button.GetComponent<Image>().color = ItemColor.LegendColor;
+                break;
+            case Rarity.Hidden:
+                button.GetComponent<Image>().color = ItemColor.HiddenColor;
                 break;
             default:
-                flexibleButton.buttontype = FlexibleUIButton.ButtonType.Type1;
+                button.GetComponent<Image>().color = ItemColor.NormalColor;
                 break;
         }
 
@@ -49,7 +52,7 @@ public class CraftingSlot : MonoBehaviour
         icon.enabled = false;
         removeButton.interactable = false;
         removeObject.SetActive(false);
-        flexibleButton.buttontype = FlexibleUIButton.ButtonType.Defalut;
+        button.GetComponent<Image>().color = ItemColor.NormalColor;
     }
     public void OnRemoveButton()
     {
