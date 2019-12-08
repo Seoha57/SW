@@ -1,6 +1,6 @@
 Seonghak Kim
 Goal:
-
+My personal goal was that making Combat Event Manager as Gameplay programmer.
 
 Work done:
 Combat Event Manager
