@@ -1,0 +1,38 @@
+Character System
+	Character Manager has all the information even enemies. On changing the scene,
+ we can get the attributes that saved in the Character Manager. So, we must save the data
+ into the Character Manager whenever we change the value in the character.
+
+Item System
+	Item generator function has been created as scriptable function.
+ This helps us to create an item by clicking once in the unity.
+
+Inventory System
+	Inventory system stores a set number of items received through reward. A player
+ must prioritize certain items over others in order to manage the amount of space available.
+ This inventory is also used in the item upgrade scene. 
+
+Reward system
+	If we win the game, we get rewarded. The reward is randomized through a defined
+ probability. This probability will result in higher rewards if you win a higher dungeon.
+ Items received on the compensation screen are automatically saved in the inventory.
+
+UI system
+	I made all of the UI. I created the image through power point and rendered it in unity.
+ I tried to make UI which is more convenient for people.
+
+Item Crafting
+	In Item Crafting, players can select two items what they want to crafting.
+To upgrade, they have to select two items for the same rarity. Currently, we can composed 
+with a 100% probability and no cost.
+
+Store System
+	In the store, we can buy the legends, items, gold, and jam. When you first start,
+ we only have one warrior character, so we have to collect the gold and buy it at the store.
+ In addition, if you need a some items for upgrade, you can buy in stores. And if you buy
+ the item, it will come out randomly again.
+
+Particle System
+	In order to make a game of better quality, I made a particle system in the all of our scene.
+ I wanted to make a simple one, so I made a white dusty particle with a black background on the lobby screen.
+ And during the combat, there is a particle applied into the skills.
