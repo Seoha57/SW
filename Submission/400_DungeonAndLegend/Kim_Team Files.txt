@@ -1,6 +1,6 @@
 Seonghak Kim
 Goal:
-My personal goal is that experiencing to make mobile game and making Combat Event Manager as Gameplay programmer.
+My personal goal is that experiencing to make a mobile game and making gameplay systems.
 
 Work done:
 Combat Event Manager
