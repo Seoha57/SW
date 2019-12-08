@@ -1,4 +1,6 @@
 Seonghak Kim
+Goal:
+
 
 Work done:
 Combat Event Manager
