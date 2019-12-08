@@ -1,3 +1,6 @@
+Goal : Experiencing to system building for mobile game development
+
+
 Character System
 	Character Manager has all the information even enemies. On changing the scene,
  we can get the attributes that saved in the Character Manager. So, we must save the data
