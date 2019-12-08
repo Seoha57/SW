@@ -1,0 +1,2 @@
+Our game(D&L) is 2.5D side view Roguelike combat game. Real-Time Cooldown-based Dungeon Looter with character growth and crafting. Created for mobile devices on the Unity Engine.
+Players can choose their first main character and grow him through the dungeon. The character can get exp., items, and golds by exploring the dungeon. But, if the character dies during exploring the dungeon, that character no more explore and items which he equipped are also disappeared. 

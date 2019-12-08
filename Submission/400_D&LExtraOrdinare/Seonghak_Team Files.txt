@@ -1,0 +1,22 @@
+Seonghak Kim
+
+Work done:
+Combat Event Manager
+Before this project, I usually function-based action. At this project, I made a combat system with Unity event. This is my main task. I made communication between all UIs and combats with event calls.
+I made Action List and Action Effect List. Action Effect means every action like take damage, use skill, enemy check, etc. And Action is comprehensive action. For example, the "Arrow Shot" action has several Action Effects(use skill, target check, etc).
+
+UI scripting
+This is related to the previous one. In CombatManager, when action effect has occurred, it gives out who uses this. Thus, UI can know the action effect which tries to listen and who uses that. And UIs act in accordance with it.
+
+Particle System
+In combat scene, when player uses skills, the particle is shown. I make particle materials and apply to the particle system. All skill's particle(floor part) are different materials. The particle system also has listeners. Particles emit when a skill that each particle are listening to is used. 
+
+Sound Manager
+Add all background music and button sound. Our mus115 class assignments are used for our BGMs. I made sound channels and play when the event has occurred. It will find an empty sound channel and then play.
+
+Balancing
+I played the role of balance adjustment. Our game is roguelike game thus it is very important. I tried to play a lot of times to keep the balance at first. And when I think it’s okay, I asked others to take playtests. Then, I got some feedback and fixed it. I repeat this process several times. 
+
+Android installer (.apk file)
+It was my first time to make the Android platform. It was a great chance for me. Experience is the best worth.
+
